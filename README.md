@@ -31,24 +31,31 @@ Moviemental connects media characters to psychological experiences, evidence-sup
 - `data/recommendations/` — recommendation mappings
 - `data/taxonomies/` — controlled vocabularies
 - `data/sources/` — source records
-- `schemas/` — record schemas
+- `schemas/` — JSON Schemas
+- `scripts/validate_data.py` — schema and cross-reference validation
+- `.github/workflows/validate-data.yml` — automated GitHub Actions check
 - `docs/` — methodology, ethics, and roadmap
 
-## Where we start
+## Validate the registry
 
-**Milestone 1: a validated pilot catalogue.**
+Requires Python 3.12+ and the `jsonschema` package.
 
-1. Finalize schemas and required fields.
-2. Curate 20–30 characters across several media types and psychological experiences.
-3. Cite evidence for important claims and distinguish diagnoses from experiential tags.
-4. Validate IDs, source references, and work-character-journey links automatically.
-5. Use the pilot to test whether the taxonomy is clear before scaling.
+```bash
+python -m pip install jsonschema
+python scripts/validate_data.py
+```
 
-The first pilot should test range and quality, not maximize the number of records. A small, well-sourced set is more useful than a huge, inconsistent list.
+The validator checks JSON syntax, schema conformance, globally unique IDs, and references between works, characters, journeys, sources, and recommendations. GitHub Actions runs the same checks on pushes and pull requests.
+
+## First milestone: Moviemental 0.1
+
+The validation foundation is in place. The next task is to curate the first 20–30 sourced cross-media character records, then test the taxonomy against real entries before scaling.
+
+See [the roadmap](docs/ROADMAP.md), [the project model](docs/PROJECT_MODEL.md), [the evidence policy](docs/EVIDENCE_POLICY.md), and [the ethics and safety policy](docs/ETHICS_AND_SAFETY.md).
 
 ## Status
 
-Early foundation stage. Some repository files define the project and taxonomy; the catalogue and public discovery interface are not yet complete. Do not treat draft entries as clinically reviewed.
+Early foundation stage. The schemas and automated validation workflow are implemented; the curated catalogue and discovery interface are not yet complete. Draft entries must not be presented as clinically reviewed.
 
 ## Disclaimer
 
