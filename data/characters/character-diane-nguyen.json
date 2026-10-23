@@ -1,0 +1,61 @@
+{
+  "id": "character-diane-nguyen",
+  "name": "Diane Nguyen",
+  "work_id": "work-diane-nguyen",
+  "psychological_experiences": [
+    {
+      "tag": "depressive experiences",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-diane-nguyen"
+      ]
+    },
+    {
+      "tag": "self-worth struggles",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-diane-nguyen"
+      ]
+    },
+    {
+      "tag": "family estrangement",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-diane-nguyen"
+      ]
+    },
+    {
+      "tag": "meaning-making",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-diane-nguyen"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "sadness",
+    "anger",
+    "relief"
+  ],
+  "coping_patterns": [
+    "writing",
+    "withdrawal",
+    "supportive relationships"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "depression themes",
+    "family abuse",
+    "suicide themes"
+  ],
+  "source_ids": [
+    "source-diane-nguyen"
+  ],
+  "representation_notes": "Explores depressive experiences and meaning-making without asserting a confirmed diagnosis.",
+  "review_status": "needs_sources"
+}
