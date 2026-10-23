@@ -49,13 +49,13 @@ The validator checks JSON syntax, schema conformance, globally unique IDs, and r
 
 ## First milestone: Moviemental 0.1
 
-The validation foundation is in place. The next task is to curate the first 20–30 sourced cross-media character records, then test the taxonomy against real entries before scaling.
+The validation foundation and a 25-character cross-media pilot are in place. The site now includes transparent coverage metrics, review-status counts, a guided story recommender, and a written recommendation methodology. The catalogue remains a pilot: source placeholders and broad narrative interpretations still require editorial review.
 
 See [the roadmap](docs/ROADMAP.md), [the project model](docs/PROJECT_MODEL.md), [the evidence policy](docs/EVIDENCE_POLICY.md), and [the ethics and safety policy](docs/ETHICS_AND_SAFETY.md).
 
 ## Website prototype
 
-An interactive static-site prototype is now in the repository root. It includes live search over the JSON registry, media-type filtering, topic shortcuts, character detail panels, journey exploration, and an expansion area for Hispanic and Dominican media. See [the website preview guide](docs/WEBSITE.md) and [the recommendation approach](docs/RECOMMENDATION_APPROACH.md).
+An interactive static-site prototype is now in the repository root. It includes live search over the JSON registry, media-type filtering, topic shortcuts, character detail panels, journey exploration, a guided theme-based recommendation flow, live registry coverage metrics, and an expansion area for Hispanic and Dominican media. See [the website preview guide](docs/WEBSITE.md) and [the recommendation approach](docs/RECOMMENDATION_APPROACH.md).
 
 The data validation workflow has passed on the current pilot dataset. GitHub Pages deployment is configured as a workflow, but the repository's Pages site is not yet enabled; the deployment job will not publish until Pages is configured in repository settings. The repository remains private.
 
