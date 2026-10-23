@@ -47,7 +47,9 @@
     "humor",
     "reconnection"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-grief"
+  ],
   "content_warnings": [
     "violence",
     "existential distress",
