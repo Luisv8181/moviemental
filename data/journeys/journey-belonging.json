@@ -8,14 +8,16 @@
     "character-miles-morales",
     "character-luz-noceda",
     "character-asta",
-    "character-n"
+    "character-n",
+    "character-zuko"
   ],
   "work_ids": [
     "work-mirabel-madrigal",
     "work-miles-morales",
     "work-luz-noceda",
     "work-asta",
-    "work-n"
+    "work-n",
+    "work-zuko"
   ],
   "stages": [
     {
@@ -44,7 +46,8 @@
     "source-miles-morales",
     "source-luz-noceda",
     "source-asta",
-    "source-n"
+    "source-n",
+    "source-zuko"
   ],
   "review_status": "needs_sources"
 }
