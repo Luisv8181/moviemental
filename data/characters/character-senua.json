@@ -1,0 +1,61 @@
+{
+  "id": "character-senua",
+  "name": "Senua",
+  "work_id": "work-senua",
+  "psychological_experiences": [
+    {
+      "tag": "psychosis-like experiences",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-senua"
+      ]
+    },
+    {
+      "tag": "grief",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-senua"
+      ]
+    },
+    {
+      "tag": "stigma",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-senua"
+      ]
+    },
+    {
+      "tag": "trauma",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-senua"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "fear",
+    "grief",
+    "determination"
+  ],
+  "coping_patterns": [
+    "ritual",
+    "perseverance",
+    "meaning-making"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "violence",
+    "psychosis-like experiences",
+    "bereavement"
+  ],
+  "source_ids": [
+    "source-senua"
+  ],
+  "representation_notes": "Intense stylized portrayal developed with consultation; not a universal depiction of psychosis.",
+  "review_status": "needs_sources"
+}
