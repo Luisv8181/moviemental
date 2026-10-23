@@ -1,0 +1,61 @@
+{
+  "id": "character-steven-universe",
+  "name": "Steven Universe",
+  "work_id": "work-steven-universe",
+  "psychological_experiences": [
+    {
+      "tag": "caregiver burden",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-steven-universe"
+      ]
+    },
+    {
+      "tag": "trauma aftermath",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-steven-universe"
+      ]
+    },
+    {
+      "tag": "difficulty asking for help",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-steven-universe"
+      ]
+    },
+    {
+      "tag": "identity transition",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-steven-universe"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "anxiety",
+    "exhaustion",
+    "confusion"
+  ],
+  "coping_patterns": [
+    "caretaking",
+    "avoidance",
+    "help-seeking"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "trauma themes",
+    "panic",
+    "emotional distress"
+  ],
+  "source_ids": [
+    "source-steven-universe"
+  ],
+  "representation_notes": "Explores the emotional cost of being the helper and needing support after crises.",
+  "review_status": "needs_sources"
+}
