@@ -46,7 +46,9 @@
     "relationship support",
     "adaptation"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-grief"
+  ],
   "content_warnings": [
     "psychosis",
     "hospitalization",
