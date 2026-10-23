@@ -19,3 +19,9 @@ Avoid defining people by diagnosis or using mental illness as shorthand for evil
 
 ## Crisis boundaries
 Never present a media recommendation as crisis support. If future features respond to crisis disclosures, prioritize appropriate support resources rather than recommending a film as the primary intervention.
+
+## Fictional characters and real people (proposed — awaiting owner decision)
+- Deep psychological analysis (the five-lens analyst protocol: formulation, evidence grades, inferred interiority) applies to **fictional characters only**. A portrayal can be examined without consent; a person cannot.
+- Real people's stories (athletes, public figures) may appear as **thematic companions**: journey shape, themes, and experiences they have stated publicly in their own words. No inferred interiority, no diagnostic language, no hypotheses about attachment, trauma, or motive.
+- Rationale: armchair psychological analysis of a living person is a different ethical category than character analysis. It risks real harm, carries defamation exposure, and breaks the consent principle this project stands on. The analysts this project learns from (Decker, Honda) draw the same line.
+- If a real-story track is ever added, it needs its own protocol: public record only, their-words-only for interior states, and a higher review bar than fiction.

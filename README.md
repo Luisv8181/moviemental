@@ -33,6 +33,7 @@ Moviemental connects media characters to psychological experiences, evidence-sup
 - `data/sources/` — source records
 - `schemas/` — JSON Schemas
 - `scripts/validate_data.py` — schema and cross-reference validation
+- `agents/character-analyst/` — five-lens character analysis agent (methodology, system prompt, runner, demo)
 - `.github/workflows/validate-data.yml` — automated GitHub Actions check
 - `docs/` — methodology, ethics, and roadmap
 
