@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Zuko · Moviemental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#0d0806; --white:#f5ece0; --ember:#e0703a;
+  --display:"Syne","Helvetica Neue",Arial,sans-serif; --body:"DM Sans",system-ui,sans-serif; --mono:"DM Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:#fff;font:16px/1.6 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.calm{scroll-behavior:auto}
+#scorch{position:fixed;inset:0;z-index:0;background:var(--black)}
+#scorch i{position:absolute;inset:0;background:var(--white);clip-path:polygon(0 0,50% 0,50% 100%,0 100%)}
+#field{position:fixed;inset:0;width:100%;height:100%;z-index:1;display:block}
+.bar{position:fixed;left:0;right:0;top:0;z-index:20;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 clamp(16px,4vw,48px);background:var(--black);border-bottom:1px solid rgba(245,236,224,.16);font:12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#bfae98}
+.bar a,.bar button{color:#bfae98;text-decoration:none;background:none;border:0;padding:6px 0;font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer;border-bottom:1px solid transparent}
+.bar a:hover,.bar button:hover{color:var(--white)}
+.bar a.active{color:var(--white);border-bottom-color:var(--ember)}
+.bar .home{color:var(--white)}
+.bar nav{display:flex;gap:clamp(10px,2vw,20px);align-items:center}
+.bar button[aria-pressed="true"]{color:var(--ember)}
+main{position:relative;z-index:2;mix-blend-mode:difference;color:#fff}
+section{min-height:100vh;padding:calc(56px + 11vh) clamp(20px,5vw,72px) 12vh;display:flex;flex-direction:column}
+.col{width:min(34rem,100%)}
+.end{margin-top:auto}
+.kicker{display:block;margin:0 0 1rem;font:12px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+h1,h2{font-family:var(--display);font-weight:800;margin:0;line-height:.9;letter-spacing:-.03em}
+h1{font-size:clamp(7rem,24vw,20rem);line-height:.78;letter-spacing:-.06em}
+h2{font-size:clamp(2.6rem,6vw,5.2rem)}
+p{margin:1.1rem 0 0;max-width:62ch}
+.lead{font-size:1.25rem}
+.soft{opacity:.72}
+.meta{margin-top:1.4rem;font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.hint{margin-top:1.6rem;font:12px var(--mono);letter-spacing:.06em;opacity:.72}
+.rows{list-style:none;margin:1.6rem 0 0;padding:0;border-top:1px solid rgba(255,255,255,.5)}
+.rows li{border-bottom:1px solid rgba(255,255,255,.5);padding:.9rem 0;cursor:default}
+.rows li:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.rows b{font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:-.02em;line-height:1.05;display:block}
+.rows li.on b,.rows li:hover b{text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:2px}
+.rows .t{display:block;opacity:.72}
+.ev{display:inline-block;margin-top:.3rem;font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.duo-ctl{margin-top:1.8rem;display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;font:12px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.duo-ctl input{width:100%;accent-color:var(--ember)}
+.btn{margin-top:1.6rem;display:inline-flex;padding:.85rem 1.3rem;border:1px solid #fff;background:transparent;color:#fff;font:13px var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.btn:hover{background:#fff;color:#000}
+.btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.spoiler .gated{transition:filter .4s, opacity .4s}
+body:not(.spoilers) .spoiler .gated{filter:blur(9px);opacity:.5;user-select:none;pointer-events:none}
+.spoiler .gate{margin-top:1.4rem;font:12px var(--mono);letter-spacing:.06em}
+body.spoilers .spoiler .gate{display:none}
+.record{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:0 2.4rem;margin-top:1.6rem;border-top:1px solid rgba(255,255,255,.5);max-width:64rem}
+.record div{padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.5)}
+.record h3{margin:0 0 .4rem;font:12px var(--mono);letter-spacing:.14em;text-transform:uppercase;font-weight:400;opacity:.72}
+.record p{margin:0}
+.wide{width:min(64rem,100%)}
+.fine{margin-top:2rem;font:12px var(--mono);letter-spacing:.03em;max-width:64rem;opacity:.75}
+.fine a{color:#fff}
+@media (max-width:899px){
+  #field{opacity:.6}
+  .bar nav a:not(.home){display:none}
+}
+</style>
+</head>
+<body>
+<div id="scorch" aria-hidden="true"><i id="burnt"></i></div>
+<canvas id="field" aria-hidden="true"></canvas>
+<header class="bar">
+  <a class="home" href="../index.html#characters">Moviemental</a>
+  <nav aria-label="Sections">
+    <a href="#s0" data-i="0">Zuko</a>
+    <a href="#s1" data-i="1">Scar</a>
+    <a href="#s2" data-i="2">Choice</a>
+    <a href="#s3" data-i="3">Fire</a>
+    <a href="#s4" data-i="4">Tea</a>
+    <a href="#s5" data-i="5">Turn</a>
+    <a href="#s6" data-i="6">Record</a>
+    <button id="spoilerToggle" type="button" aria-pressed="false">Spoilers hidden</button>
+    <button id="motionToggle" type="button" aria-pressed="false">Calm motion</button>
+  </nav>
+</header>
+
+<main>
+  <section id="s0" class="chapter">
+    <div class="col end">
+      <span class="kicker">Character feature · draft entry</span>
+      <h1>ZUKO</h1>
+      <p class="lead">A banished prince chasing a stolen honor, and the long road back to himself.</p>
+      <p class="meta">Avatar: The Last Airbender · animated series · 2005 · DiMartino &amp; Konietzko</p>
+      <p class="hint">Move left and right. One side of this page is scorched. The other is still warm.</p>
+    </div>
+  </section>
+
+  <section id="s1" class="chapter">
+    <div class="col">
+      <span class="kicker">Experience · shame and self-worth</span>
+      <h2>The scar he carries.</h2>
+      <p>At thirteen, Zuko spoke out of turn in a war meeting. His father answered with fire, in ritual combat, and banished him: capture the Avatar, and your honor will be restored. He believed the terms. The series never lets the audience forget them either. Every time he says the word honor, the scar is in the frame.</p>
+      <ul class="rows">
+        <li data-hot="scar:0" tabindex="0"><b>The burn</b><span class="t">A punishment for having a conscience, worn on his face.</span></li>
+        <li data-hot="scar:1" tabindex="0"><b>The borrowed word</b><span class="t">Honor, meaning obedience. He will spend years unlearning the definition.</span></li>
+      </ul>
+      <p class="hint">Move through the field. The scar flickers; it never quite goes out.</p>
+    </div>
+  </section>
+
+  <section id="s2" class="chapter spoiler">
+    <div class="col">
+      <span class="kicker">Experience · parental rejection · late-story detail</span>
+      <h2>The wrong choice.</h2>
+      <p class="gate">This section describes a second-season turning point. Turn on spoilers in the top bar to read it.</p>
+      <div class="gated">
+        <p>Given a quiet life in Ba Sing Se and his uncle's steadiness, Zuko is offered a way back: his sister's invitation, his father's terms. At the Crossroads of Destiny he chooses Azula, and helps strike down the Avatar. The show lets the wrong choice stand for a full season. It refuses to soften it.</p>
+        <ul class="rows">
+          <li data-hot="choice:0" tabindex="0"><b>The offer</b><span class="t">Everything he said he wanted, handed back at last.</span></li>
+          <li data-hot="choice:1" tabindex="0"><b>The cost</b><span class="t">He gets it all, and finds it empty within a single episode.</span></li>
+        </ul>
+        <p class="soft">Moviemental records this as an experience of parental rejection. It is the story's portrayal, not a clinical description of family systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s3" class="chapter">
+    <div class="col">
+      <span class="kicker">Mood · anger</span>
+      <h2>Fire from rage.</h2>
+      <p>For two seasons, Zuko's bending runs on fury. It is powerful and it is hurting him; every blast costs him something. Late in the story, two dragons teach him the original source: fire comes from breath and life, not anger. The slider below moves between the two fuels.</p>
+      <div class="duo-ctl"><span>Rage</span><input id="duoRange" type="range" min="-100" max="100" value="0" aria-label="Balance between rage and breath"><span>Breath</span></div>
+      <ul class="rows">
+        <li data-hot="fire:0" tabindex="0"><b>Rage</b><span class="t">Hot, fast, and expensive. The fuel his father taught.</span></li>
+        <li data-hot="fire:1" tabindex="0"><b>Breath</b><span class="t">Steady and his own. The fuel the dragons teach.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s4" class="chapter">
+    <div class="col">
+      <span class="kicker">Theme · the uncle</span>
+      <h2>Tea and steadiness.</h2>
+      <p>Iroh is the control group: the attuned adult who stays. He feeds Zuko, follows him into exile, and tells him the truth slant, through tea. Every lesson Zuko eventually learns was first lived by his uncle. The show's proof that the alternative to his father is real, not theoretical.</p>
+      <ul class="rows">
+        <li data-hot="tea:0" tabindex="0"><b>Staying</b><span class="t">The one person who never makes love conditional.</span></li>
+        <li data-hot="tea:1" tabindex="0"><b>Steam</b><span class="t">Slow, warm, rising. The opposite of everything fire was for him.</span></li>
+      </ul>
+      <p class="hint">Scroll slowly here. The field calms down.</p>
+    </div>
+  </section>
+
+  <section id="s5" class="chapter spoiler">
+    <div class="col">
+      <span class="kicker">Experience · making amends · late-story reveal</span>
+      <h2>The turn.</h2>
+      <p class="gate">This section describes the story's major turn for Zuko. Turn on spoilers in the top bar to read it.</p>
+      <div class="gated">
+        <p>During the eclipse, Zuko confronts his father: names what was done to him, out loud, to the man who did it, and walks out of the palace. He joins the Avatar, learns firebending from the dragons, and takes lightning meant for Katara. His apology tour is not montaged; each person he hunted has to be faced, and some nearly say no.</p>
+        <ul class="rows">
+          <li data-hot="turn:0" tabindex="0"><b>Naming it</b><span class="t">The breakthrough staged as action: the truth, said to his father's face.</span></li>
+          <li data-hot="turn:1" tabindex="0"><b>Earning it</b><span class="t">Forgiveness auditioned person by person, never declared.</span></li>
+        </ul>
+        <p class="soft">Moviemental records this as an experience of making amends. The finale does not heal the scar. It retires its authority.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s6" class="chapter">
+    <div class="wide">
+      <span class="kicker">Registry record · character-zuko</span>
+      <h2>The record.</h2>
+      <div class="record">
+        <div><h3>Experiences</h3><p>Shame and self-worth · parental rejection · identity formation · making amends</p></div>
+        <div><h3>Evidence status</h3><p>Experiential only. No diagnosis is asserted. The show states none, so none is recorded.</p></div>
+        <div><h3>Moods</h3><p>Shame · anger · resolve</p></div>
+        <div><h3>Coping patterns</h3><p>Pursuing his father's approval · hiding behind the Blue Spirit mask · learning from his uncle's steadiness</p></div>
+        <div><h3>Content notes</h3><p>Child physical abuse by a parent · parental rejection · scenes of fire and burning</p></div>
+        <div><h3>May resonate if</h3><p>You grew up trying to earn love that was priced out of reach. A story can resonate; it is not treatment.</p></div>
+      </div>
+      <p class="fine">Journey: Belonging and identity. Review status: needs sources. This is a narrative discovery entry, not a clinical assessment. The artwork on this page is original; no stills, artwork, or dialogue from the series are reproduced. <a href="../index.html#characters">Back to the catalogue</a>.</p>
+    </div>
+  </section>
+</main>
+
+<script type="module">
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x)), lerp = (a, b, t) => a + (b - a) * t;
+const ease = (c, t, dt, r = 4) => c + (t - c) * (1 - Math.exp(-dt * r));
+const sections = $$(".chapter"), navLinks = $$(".bar nav a[data-i]");
+const mobile = matchMedia("(max-width:899px)").matches;
+
+let calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const mt = $("#motionToggle");
+const syncMotion = () => { mt.setAttribute("aria-pressed", String(calm)); mt.textContent = calm ? "Calm motion on" : "Calm motion"; document.body.classList.toggle("calm", calm); };
+mt.addEventListener("click", () => { calm = !calm; syncMotion(); }); syncMotion();
+const st = $("#spoilerToggle");
+st.addEventListener("click", () => {
+  const on = !document.body.classList.contains("spoilers");
+  document.body.classList.toggle("spoilers", on);
+  st.setAttribute("aria-pressed", String(on)); st.textContent = on ? "Spoilers shown" : "Spoilers hidden";
+  $$(".spoiler .gated").forEach(g => g.toggleAttribute("inert", !on));
+});
+$$(".spoiler .gated").forEach(g => g.setAttribute("inert", ""));
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const el = document.getElementById(a.getAttribute("href").slice(1)); if (!el) return;
+  e.preventDefault(); el.scrollIntoView({ behavior: calm ? "auto" : "smooth" });
+});
+
+let hotKey = "", hotOn = 0;
+$$("[data-hot]").forEach(el => {
+  const on = () => { hotKey = el.dataset.hot; hotOn = 1; el.classList.add("on"); };
+  const off = () => { hotOn = 0; el.classList.remove("on"); };
+  el.addEventListener("pointerenter", on); el.addEventListener("focusin", on);
+  el.addEventListener("pointerleave", off); el.addEventListener("focusout", off);
+});
+const hk = p => hotOn && hotKey.startsWith(p) ? hotKey.slice(p.length) : null;
+
+function targetState() {
+  const vc = scrollY + innerHeight * .5, mids = sections.map(s => s.offsetTop + s.offsetHeight / 2);
+  if (vc <= mids[0]) return 0; if (vc >= mids[mids.length - 1]) return mids.length - 1;
+  let i = 0; while (i < mids.length - 1 && vc > mids[i + 1]) i++;
+  const f = (vc - mids[i]) / (mids[i + 1] - mids[i]), e = clamp((f - .28) / .44);
+  return i + e * e * (3 - 2 * e);
+}
+
+/* the scorch line between the burnt side and the warm side, in screen space */
+const TILT = .12;
+let split = 0, splitTarget = 0, cursorN = 0;
+const burntEl = $("#burnt");
+function drawSplit() {
+  const top = (split + TILT + 1) / 2 * 100, bottom = (split - TILT + 1) / 2 * 100;
+  burntEl.style.clipPath = `polygon(0 0, ${top}% 0, ${bottom}% 100%, 0 100%)`;
+}
+addEventListener("pointermove", e => { cursorN = e.clientX / innerWidth * 2 - 1; });
+const duoRange = $("#duoRange");
+
+const canvas = $("#field");
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true }); } catch (e) { canvas.style.display = "none"; }
+const SPLITS = [null, -1.4, 1.4, "range", .35, -1.4, 1.4];
+
+if (!renderer) {
+  (function loop() { const s = Math.round(targetState()); const v = SPLITS[s]; splitTarget = v === null ? cursorN * .8 : v === "range" ? duoRange.value / 100 : v; split = lerp(split, splitTarget, .1); drawSplit(); requestAnimationFrame(loop); })();
+} else {
+  const N = mobile ? 22000 : 50000, TAU = Math.PI * 2;
+  let seed = 11; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+  const gauss = () => (rnd() + rnd() + rnd() + rnd() - 2) * 1.2;
+  const T = Array.from({ length: 7 }, () => new Float32Array(N * 3)), R = new Float32Array(N * 4);
+  for (let i = 0; i < N; i++) {
+    const o = i * 3, r = [rnd(), rnd(), rnd(), rnd()]; R.set(r, i * 4);
+    T[0].set([(rnd() - .5) * 15, (rnd() - .5) * 8.6, (rnd() - .5) * 4], o);
+    T[1].set([rnd(), rnd(), rnd()], o);
+    T[2].set([rnd(), rnd(), rnd()], o);
+    T[3].set([rnd(), rnd(), rnd()], o);
+    T[4].set([rnd(), rnd(), rnd()], o);
+    T[5].set([rnd(), rnd(), rnd()], o);
+    T[6].set([(rnd() - .5) * 12, (rnd() - .5) * 7, (rnd() - .5) * 3], o);
+  }
+  const geo = new THREE.BufferGeometry();
+  T.forEach((a, k) => geo.setAttribute(k ? "aT" + k : "position", new THREE.BufferAttribute(a, 3)));
+  geo.setAttribute("aR", new THREE.BufferAttribute(R, 4));
+  const U = {
+    uTime: { value: 0 }, uState: { value: 0 }, uPR: { value: 1 }, uOffX: { value: 0 }, uScale: { value: 1 }, uSplit: { value: 0 }, uTilt: { value: TILT },
+    uMouse: { value: new THREE.Vector2(99, 99) }, uScar: { value: 0 }, uChoiceW: { value: 0 }, uFuel: { value: 0 }, uFuelW: { value: 0 },
+    uTeaW: { value: 0 }, uTurnW: { value: 0 }, uSpoil: { value: 0 }
+  };
+  const mat = new THREE.ShaderMaterial({
+    uniforms: U, transparent: true, depthWrite: false,
+    vertexShader: /* glsl */`
+      attribute vec3 aT1; attribute vec3 aT2; attribute vec3 aT3; attribute vec3 aT4; attribute vec3 aT5; attribute vec3 aT6; attribute vec4 aR;
+      uniform float uTime, uState, uPR, uOffX, uScale, uSplit, uTilt, uScar, uChoiceW, uFuel, uFuelW, uTeaW, uTurnW, uSpoil;
+      uniform vec2 uMouse;
+      varying float vBurnt; varying float vAcc; varying float vA;
+      const float TAU = 6.2831853;
+      vec3 flow(vec3 p, float t){ return vec3(sin(p.y*1.7+t)+sin(p.z*2.3-t*.7), sin(p.z*1.9+t*.8)+sin(p.x*2.1+t*.5), sin(p.x*1.6-t*.6)+sin(p.y*2.4+t*.9))*.5; }
+      float h1(float n){ return fract(sin(n) * 43758.5453); }
+
+      /* s0: embers rising */
+      vec3 s0(float t, out float acc, out float br){
+        float u = fract(aR.x + t * (.04 + aR.y * .06));
+        vec3 p = vec3((aR.z - .5) * 12.0, -4.5 + u * 9.0, (aR.w - .5) * 3.0);
+        p.x += sin(u * 9.0 + t * .8 + aR.z * 6.0) * .35 * u;
+        acc = aR.w > .97 ? 1.0 : 0.0; br = (.35 + .65 * u) * (.5 + .5 * aR.y);
+        return p;
+      }
+      /* s1: the scar — a flickering vertical streak */
+      vec3 s1(float t, out float acc, out float br){
+        float k = aR.w; acc = 0.0;
+        float flick = .6 + .4 * sin(t * 7.0 + aR.x * 40.0);
+        if (k < .55) {
+          float y = (aT1.y - .5) * 7.0;
+          float x = sin(y * 2.2) * .35 + sin(y * 5.1 + 1.0) * .12;
+          vec3 p = vec3(x + (aT1.x - .5) * .5, y, (aT1.z - .5) * .6);
+          acc = 1.0; br = flick;
+          return p;
+        }
+        vec3 p = vec3((aT1.x - .5) * 10.0, (aT1.y - .5) * 7.0, (aT1.z - .5) * 2.0);
+        br = .25 * flick; return p;
+      }
+      /* s2: the wrong choice — dimmed until spoilers */
+      vec3 s2(float t, out float acc, out float br){
+        float k = aR.w; acc = 0.0;
+        vec2 c = vec2(0.0, 0.0);
+        float a = aT2.x * TAU, d = .5 + aT2.y * 2.8;
+        vec3 p = vec3(c + vec2(cos(a), sin(a)) * d, (aT2.z - .5));
+        float wob = sin(t * 1.3 + a * 3.0) * .15;
+        p.xy += vec2(wob, -uChoiceW * aT2.y * 2.0);
+        br = .3 + uSpoil * .6; acc = uChoiceW * .5;
+        return p;
+      }
+      /* s3: fire from rage — fast and sharp; slider moves toward breath */
+      vec3 s3(float t, out float acc, out float br){
+        float k = aR.w; acc = 0.0;
+        float rage = 1.0 - uFuelW * .5 - uFuel * .5;
+        float sp = .5 + rage * 2.2;
+        float u = fract(aR.x + t * sp * .12);
+        vec3 p = vec3((aR.z - .5) * (4.0 + rage * 8.0), -3.5 + u * 7.0, (aR.w - .5) * 2.0);
+        p.x += sin(u * 14.0 + t * (2.0 + rage * 6.0)) * (.1 + rage * .5) * u;
+        float sharp = step(.92, fract(aR.y * 7.0));
+        acc = sharp * rage; br = (.3 + .7 * u) * (.4 + rage * .6);
+        return p;
+      }
+      /* s4: tea — slow warm steam */
+      vec3 s4(float t, out float acc, out float br){
+        float k = aR.w; acc = 0.0;
+        float u = fract(aR.x + t * .05);
+        float swirl = sin(u * 6.0 + t * .5 + aR.z * 4.0) * .4 * u;
+        vec3 p = vec3((aT4.x - .5) * 5.0 + swirl, -3.0 + u * 6.5, (aT4.z - .5) * 1.5);
+        br = .25 + .55 * u; acc = uTeaW * .4 * u;
+        return p;
+      }
+      /* s5: the turn — two intertwining dragons, dimmed until spoilers */
+      vec3 s5(float t, out float acc, out float br){
+        float k = aR.w; acc = 0.0;
+        bool red = aR.x < .5;
+        float u = fract(aR.y + t * .06);
+        float a = u * TAU * 3.0 + (red ? 0.0 : 3.14159);
+        float rad = 1.6 - u * .9;
+        vec3 p = vec3(cos(a) * rad + (red ? -1.2 : 1.2), -3.0 + u * 6.0, sin(a) * rad * .5);
+        p.x += sin(t * 1.1 + u * 9.0) * .12;
+        acc = uTurnW * .6; br = (.3 + .7 * u) * (.25 + uSpoil * .75);
+        return p;
+      }
+      /* s6: settling — embers coming to rest */
+      vec3 s6(float t, out float acc, out float br){
+        float u = fract(aR.x + t * .02);
+        vec3 p = vec3((aR.z - .5) * 10.0, 3.5 - u * 6.0, (aR.w - .5) * 2.0);
+        p.x += sin(u * 5.0 + t * .4) * .2;
+        acc = aR.w > .985 ? 1.0 : 0.0; br = .5 * (1.0 - u * .6);
+        return p;
+      }
+      vec3 pick(int i, float t, out float acc, out float br){
+        if (i == 0) return s0(t, acc, br); if (i == 1) return s1(t, acc, br); if (i == 2) return s2(t, acc, br);
+        if (i == 3) return s3(t, acc, br); if (i == 4) return s4(t, acc, br); if (i == 5) return s5(t, acc, br); return s6(t, acc, br);
+      }
+      void main(){
+        float s = clamp(uState, 0.0, 6.0); int i0 = int(floor(s)), i1 = min(i0 + 1, 6);
+        float f = fract(s); if (i0 == 6) f = 0.0; f = f * f * (3.0 - 2.0 * f);
+        float a0, b0, a1, b1; vec3 p = pick(i0, uTime, a0, b0); float acc = a0, br = b0;
+        if (f > .001) { vec3 q = pick(i1, uTime, a1, b1); p = mix(p, q, f); acc = mix(a0, a1, f); br = mix(b0, b1, f); }
+        p = p * uScale + vec3(uOffX, 0.0, 0.0);
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_Position = projectionMatrix * mv;
+        vec2 ndc = gl_Position.xy / gl_Position.w;
+        /* a particle on the burnt half is drawn scorched, on the warm half lit */
+        vBurnt = ndc.x < uSplit + uTilt * ndc.y ? 1.0 : 0.0;
+        vAcc = acc;
+        float depth = clamp((-mv.z - 8.0) / 12.0, 0.0, 1.0);
+        gl_PointSize = max(1.0, (1.6 + acc * .8) * uPR * (12.0 / -mv.z));
+        vA = br * (1.0 - .55 * depth);
+      }`,
+    fragmentShader: /* glsl */`
+      varying float vBurnt; varying float vAcc; varying float vA;
+      void main(){
+        float d = length(gl_PointCoord - .5); if (d > .5) discard;
+        vec3 scorched = vec3(.09, .045, .03), warm = vec3(.96, .85, .68);
+        vec3 accS = vec3(.35, .08, .03), accW = vec3(1.0, .55, .2);
+        vec3 c = mix(warm, scorched, vBurnt); c = mix(c, mix(accW, accS, vBurnt), vAcc);
+        gl_FragColor = vec4(c, vA * (1.0 - smoothstep(.34, .5, d)));
+      }`
+  });
+  const scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(40, 1, .1, 100); camera.position.z = 12;
+  const pts = new THREE.Points(geo, mat); pts.frustumCulled = false; scene.add(pts);
+  let halfW = 1, halfH = 1;
+  const OFF = mobile ? [0, 0, 0, 0, 0, 0, 0] : [1.8, 2.7, 2.7, 2.9, 2.6, 2.7, 0];
+  const resize = () => {
+    renderer.setSize(innerWidth, innerHeight, false); renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); U.uPR.value = renderer.getPixelRatio();
+    camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
+    halfH = Math.tan(THREE.MathUtils.degToRad(20)) * 12; halfW = halfH * camera.aspect; U.uScale.value = Math.min(1, Math.max(.5, camera.aspect * .75));
+  };
+  addEventListener("resize", resize); resize();
+  addEventListener("pointermove", e => { U.uMouse.value.set((e.clientX / innerWidth * 2 - 1) * halfW, -(e.clientY / innerHeight * 2 - 1) * halfH); });
+
+  let state = targetState(), t = 0, motion = 1, lastY = scrollY;
+  const P = { scar: 0, choiceW: 0, fuelW: 0, teaW: 0, turnW: 0, spoil: 0 };
+  const clock = new THREE.Clock();
+  (function frame() {
+    const dt = Math.min(clock.getDelta(), .05);
+    const tgt = targetState(); state = ease(state, tgt, dt, calm ? 3 : 4.5); motion = ease(motion, calm ? .25 : 1, dt, 3); t += dt * motion;
+    lastY = scrollY;
+    const hs = hk("scar:"), hc = hk("choice:"), hf = hk("fire:"), ht = hk("tea:"), htn = hk("turn:");
+    P.scar = ease(P.scar, hs !== null ? 1 : 0, dt, 3);
+    P.choiceW = ease(P.choiceW, hc !== null ? 1 : 0, dt, 4);
+    P.fuelW = ease(P.fuelW, hf !== null ? 1 : 0, dt, 3);
+    P.teaW = ease(P.teaW, ht !== null ? 1 : 0, dt, 3);
+    P.turnW = ease(P.turnW, htn !== null ? 1 : 0, dt, 4);
+    P.spoil = ease(P.spoil, document.body.classList.contains("spoilers") ? 1 : 0, dt, 3);
+    U.uTime.value = t; U.uState.value = state; U.uScar.value = P.scar; U.uChoiceW.value = P.choiceW;
+    U.uFuel.value = duoRange.value / 100; U.uFuelW.value = P.fuelW; U.uTeaW.value = P.teaW; U.uTurnW.value = P.turnW; U.uSpoil.value = P.spoil;
+    const i0 = Math.floor(state), i1 = Math.min(i0 + 1, 6); U.uOffX.value = lerp(OFF[i0], OFF[i1], state - i0) * U.uScale.value;
+    const ni = clamp(Math.round(tgt), 0, 6), sv = SPLITS[ni];
+    splitTarget = sv === null ? cursorN * .85 : sv === "range" ? duoRange.value / 100 * .9 : sv;
+    split = ease(split, splitTarget, dt, calm ? 2 : 5); U.uSplit.value = split; drawSplit();
+    navLinks.forEach(a => a.classList.toggle("active", Number(a.dataset.i) === ni));
+    renderer.render(scene, camera); requestAnimationFrame(frame);
+  })();
+}
+</script>
+</body>
+</html>

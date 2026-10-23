@@ -26,7 +26,8 @@
     "data/works/work-ted-lasso.json",
     "data/works/work-will-hunting.json",
     "data/works/work-asta.json",
-    "data/works/work-n.json"
+    "data/works/work-n.json",
+    "data/works/work-zuko.json"
   ],
   "characters": [
     "data/characters/character-adrian-monk.json",
@@ -55,7 +56,8 @@
     "data/characters/character-ted-lasso.json",
     "data/characters/character-will-hunting.json",
     "data/characters/character-asta.json",
-    "data/characters/character-n.json"
+    "data/characters/character-n.json",
+    "data/characters/character-zuko.json"
   ],
   "journeys": [
     "data/journeys/journey-accountability.json",
