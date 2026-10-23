@@ -1,0 +1,61 @@
+{
+  "id": "character-luz-noceda",
+  "name": "Luz Noceda",
+  "work_id": "work-luz-noceda",
+  "psychological_experiences": [
+    {
+      "tag": "feeling different",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-luz-noceda"
+      ]
+    },
+    {
+      "tag": "belonging",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-luz-noceda"
+      ]
+    },
+    {
+      "tag": "identity exploration",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-luz-noceda"
+      ]
+    },
+    {
+      "tag": "family conflict",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-luz-noceda"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "curiosity",
+    "loneliness",
+    "hope"
+  ],
+  "coping_patterns": [
+    "imagination",
+    "friendship",
+    "self-advocacy"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "bereavement themes",
+    "family conflict",
+    "peril"
+  ],
+  "source_ids": [
+    "source-luz-noceda"
+  ],
+  "representation_notes": "Explores belonging, identity, and affirming relationships without a diagnosis label.",
+  "review_status": "needs_sources"
+}
