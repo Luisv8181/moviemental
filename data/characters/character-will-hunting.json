@@ -1,0 +1,62 @@
+{
+  "id": "character-will-hunting",
+  "name": "Will Hunting",
+  "work_id": "work-will-hunting",
+  "psychological_experiences": [
+    {
+      "tag": "trauma history",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-will-hunting"
+      ]
+    },
+    {
+      "tag": "difficulty trusting",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-will-hunting"
+      ]
+    },
+    {
+      "tag": "defensiveness",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-will-hunting"
+      ]
+    },
+    {
+      "tag": "fear of vulnerability",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-will-hunting"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "anger",
+    "shame",
+    "affection"
+  ],
+  "coping_patterns": [
+    "intellectualization",
+    "avoidance",
+    "humor",
+    "relationship-building"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "childhood abuse",
+    "violence",
+    "grief"
+  ],
+  "source_ids": [
+    "source-will-hunting"
+  ],
+  "representation_notes": "Prompts discussion of trauma and trust; therapy scenes are dramatized, not a practice manual.",
+  "review_status": "needs_sources"
+}
