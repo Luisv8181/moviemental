@@ -1,0 +1,29 @@
+{
+  "id": "recommend-understand-substance-use",
+  "goal": "understand_an_experience",
+  "goal_detail": "Explore how substance use can affect relationships and self-understanding",
+  "work_ids": [
+    "work-rue-bennett",
+    "work-bojack-horseman",
+    "work-beth-harmon"
+  ],
+  "journey_ids": [
+    "journey-substance-use",
+    "journey-accountability"
+  ],
+  "why_it_may_fit": "These narratives show different interactions between substance use, avoidance, relationships, and consequences.",
+  "limitations": "Some portrayals are intense, stylized, or dramatized. They should not replace evidence-based recovery information.",
+  "emotional_intensity": "intense",
+  "content_warnings": [
+    "substance use",
+    "overdose",
+    "suicide themes",
+    "abuse"
+  ],
+  "source_ids": [
+    "source-rue-bennett",
+    "source-bojack-horseman",
+    "source-beth-harmon"
+  ],
+  "review_status": "needs_sources"
+}
