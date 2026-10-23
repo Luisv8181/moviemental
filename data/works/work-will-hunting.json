@@ -1,0 +1,19 @@
+{
+  "id": "work-will-hunting",
+  "title": "Good Will Hunting",
+  "media_type": "film",
+  "release_year": 1997,
+  "country_or_region": [],
+  "language": [
+    "en"
+  ],
+  "source_ids": [
+    "source-will-hunting"
+  ],
+  "content_warnings": [
+    "childhood abuse",
+    "violence",
+    "grief"
+  ],
+  "review_status": "draft"
+}
