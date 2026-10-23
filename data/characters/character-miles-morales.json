@@ -1,0 +1,61 @@
+{
+  "id": "character-miles-morales",
+  "name": "Miles Morales",
+  "work_id": "work-miles-morales",
+  "psychological_experiences": [
+    {
+      "tag": "identity formation",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-miles-morales"
+      ]
+    },
+    {
+      "tag": "performance pressure",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-miles-morales"
+      ]
+    },
+    {
+      "tag": "belonging",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-miles-morales"
+      ]
+    },
+    {
+      "tag": "fear of failure",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-miles-morales"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "anxiety",
+    "excitement",
+    "self-doubt"
+  ],
+  "coping_patterns": [
+    "mentorship",
+    "practice",
+    "creative expression"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "family conflict",
+    "peril",
+    "bereavement"
+  ],
+  "source_ids": [
+    "source-miles-morales"
+  ],
+  "representation_notes": "Coming-of-age story about identity, expectations, mentorship, and confidence.",
+  "review_status": "needs_sources"
+}
