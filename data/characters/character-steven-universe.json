@@ -47,7 +47,9 @@
     "avoidance",
     "help-seeking"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-hidden-distress"
+  ],
   "content_warnings": [
     "trauma themes",
     "panic",
