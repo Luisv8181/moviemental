@@ -1,0 +1,20 @@
+{
+  "id": "work-arthur-fleck",
+  "title": "Joker",
+  "media_type": "film",
+  "release_year": 2019,
+  "country_or_region": [],
+  "language": [
+    "en"
+  ],
+  "source_ids": [
+    "source-arthur-fleck"
+  ],
+  "content_warnings": [
+    "graphic violence",
+    "suicide",
+    "abuse",
+    "mental illness stigma"
+  ],
+  "review_status": "draft"
+}
