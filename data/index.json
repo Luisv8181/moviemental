@@ -24,7 +24,9 @@
     "data/works/work-senua.json",
     "data/works/work-steven-universe.json",
     "data/works/work-ted-lasso.json",
-    "data/works/work-will-hunting.json"
+    "data/works/work-will-hunting.json",
+    "data/works/work-asta.json",
+    "data/works/work-n.json"
   ],
   "characters": [
     "data/characters/character-adrian-monk.json",
@@ -51,7 +53,9 @@
     "data/characters/character-senua.json",
     "data/characters/character-steven-universe.json",
     "data/characters/character-ted-lasso.json",
-    "data/characters/character-will-hunting.json"
+    "data/characters/character-will-hunting.json",
+    "data/characters/character-asta.json",
+    "data/characters/character-n.json"
   ],
   "journeys": [
     "data/journeys/journey-accountability.json",

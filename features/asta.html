@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Asta · Moviemental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07080b; --fg:#f1f3f7; --muted:#9aa5b4; --line:rgba(241,243,247,.16);
+  --anti:#e0263a; --clover:#5fd08a; --gold:#f2c14e; --mint:#82e1c1;
+  --display:"Anton","Impact","Arial Narrow",sans-serif; --body:"DM Sans",system-ui,sans-serif; --mono:"DM Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:crosshair}
+body.calm{scroll-behavior:auto}
+#field{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+.bar{position:fixed;left:0;right:0;top:0;z-index:20;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 clamp(16px,4vw,48px);background:var(--bg);border-bottom:1px solid var(--line);font:12px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.bar a,.bar button{color:var(--muted);text-decoration:none;background:none;border:0;padding:6px 0;font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer;border-bottom:1px solid transparent}
+.bar a:hover,.bar button:hover{color:var(--fg)}
+.bar a.active{color:var(--fg);border-bottom-color:var(--anti)}
+.bar .home{color:var(--fg)}
+.bar nav{display:flex;gap:clamp(10px,2vw,22px);align-items:center}
+.bar button[aria-pressed="true"]{color:var(--anti)}
+main{position:relative;z-index:2}
+section{min-height:100vh;padding:calc(56px + 11vh) clamp(20px,5vw,72px) 12vh;display:flex;flex-direction:column}
+.col{width:min(34rem,100%)}
+.end{margin-top:auto}
+.kicker{display:block;margin:0 0 1rem;font:12px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.kicker .chip{color:var(--bg);background:var(--mint);padding:2px 7px;margin-left:.5rem;letter-spacing:.06em}
+h1,h2{font-family:var(--display);font-weight:400;margin:0;line-height:.86;letter-spacing:.005em;text-transform:uppercase}
+h1{font-size:clamp(6rem,20vw,17rem);line-height:.8}
+h2{font-size:clamp(3rem,7vw,6rem)}
+p{margin:1.1rem 0 0;max-width:62ch}
+.lead{font-size:1.2rem}
+.muted{color:var(--muted)}
+.meta{margin-top:1.4rem;font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.meta b{color:var(--fg);font-weight:500}
+.hint{margin-top:1.6rem;font:12px var(--mono);letter-spacing:.06em;color:var(--muted)}
+.rows{list-style:none;margin:1.6rem 0 0;padding:0;border-top:1px solid var(--line)}
+.rows li{border-bottom:1px solid var(--line);padding:.95rem 0;display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;align-items:baseline;cursor:default}
+.rows li:focus-visible{outline:2px solid var(--anti);outline-offset:2px}
+.rows b{font-family:var(--display);font-weight:400;font-size:1.65rem;letter-spacing:.01em;text-transform:uppercase;line-height:1;transition:color .2s}
+.rows li.on b,.rows li:hover b{color:var(--anti)}
+.rows .t{grid-column:1 / -1;color:var(--muted)}
+.ev{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mint);white-space:nowrap}
+.btn{margin-top:1.6rem;display:inline-flex;align-items:center;gap:1rem;padding:.9rem 1.3rem;border:0;background:var(--anti);color:#fff;font:14px var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.btn:hover{background:#fff;color:var(--bg)}
+.btn:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.reps{font-family:var(--display);font-size:clamp(3rem,6vw,5rem);line-height:1;margin-top:1.2rem}
+.reps small{display:block;font:12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.4rem}
+.note{margin-top:1.6rem;padding-top:.9rem;border-top:1px solid var(--line);font-size:.95rem;color:var(--muted)}
+.record{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:0 2.4rem;margin-top:1.6rem;border-top:1px solid var(--line);max-width:64rem}
+.record div{padding:1rem 0;border-bottom:1px solid var(--line)}
+.record h3{margin:0 0 .4rem;font:12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.record p{margin:0}
+.wide{width:min(64rem,100%)}
+.fine{margin-top:2rem;font:12px var(--mono);letter-spacing:.03em;color:var(--muted);max-width:64rem}
+.fine a{color:var(--mint)}
+@media (max-width:899px){
+  #field{opacity:.5}
+  .bar nav a:not(.home){display:none}
+  body{cursor:auto}
+}
+</style>
+</head>
+<body>
+<canvas id="field" aria-hidden="true"></canvas>
+<header class="bar">
+  <a class="home" href="../index.html#characters">Moviemental</a>
+  <nav aria-label="Sections">
+    <a href="#s0" data-i="0">Asta</a>
+    <a href="#s1" data-i="1">Different</a>
+    <a href="#s2" data-i="2">Persistence</a>
+    <a href="#s3" data-i="3">Grimoire</a>
+    <a href="#s4" data-i="4">Belonging</a>
+    <a href="#s5" data-i="5">Journey</a>
+    <a href="#s6" data-i="6">Record</a>
+    <button id="motionToggle" type="button" aria-pressed="false">Calm motion</button>
+  </nav>
+</header>
+
+<main>
+  <section id="s0" class="chapter">
+    <div class="col end">
+      <span class="kicker">Character feature<span class="chip">Draft entry</span></span>
+      <h1>Asta</h1>
+      <p class="lead">Born without magic in a world where everyone else has it.</p>
+      <p class="meta"><b>Black Clover</b> · anime · 2017 · from the manga by Yūki Tabata</p>
+      <p class="hint">Move across the sky of magic. Your cursor is an anti-magic blade: it cuts through mana instead of adding to it.</p>
+    </div>
+  </section>
+
+  <section id="s1" class="chapter">
+    <div class="col">
+      <span class="kicker">Experience · feeling different</span>
+      <h2>The only one without mana.</h2>
+      <p>In the Clover Kingdom, magic decides a person’s place. Asta grows up in a remote village orphanage beside Yuno, a gifted friend and rival, and stands out for having no magic power at all.</p>
+      <ul class="rows">
+        <li data-hot="diff:0" tabindex="0"><b>Feeling different</b><span class="ev">Experiential only</span><span class="t">Being the exception in a world built around a power everyone else has.</span></li>
+        <li data-hot="diff:1" tabindex="0"><b>Social exclusion</b><span class="ev">Experiential only</span><span class="t">Mockery and low expectations from people who measure worth by magic and birth.</span></li>
+        <li data-hot="diff:2" tabindex="0"><b>Class prejudice</b><span class="ev">Content note</span><span class="t">The world ranks nobles above commoners and the remote villages below both.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s2" class="chapter">
+    <div class="col">
+      <span class="kicker">Coping pattern · persistence</span>
+      <h2>Training when nothing is given.</h2>
+      <p>Without magic, Asta answers with relentless physical training and a refusal to accept the limits other people set for him. The story treats his stubbornness as his engine.</p>
+      <button class="btn" id="rep" type="button">Keep going</button>
+      <div class="reps" aria-live="polite"><span id="repCount">0</span><small>Steps climbed against the wind</small></div>
+      <p class="note">Persistence is how this character copes. It is one response, not a universal model: rest, help, and changing course are valid too.</p>
+    </div>
+  </section>
+
+  <section id="s3" class="chapter">
+    <div class="col">
+      <span class="kicker">Turning point</span>
+      <h2>A five-leaf grimoire.</h2>
+      <p>Mages receive a grimoire as teenagers. Most covers carry three leaves; a four-leaf clover is rare and lucky. Asta is first passed over, then receives a battered grimoire with a fifth leaf. It holds swords that cancel magic rather than cast it.</p>
+      <ul class="rows">
+        <li data-hot="leaf:3" tabindex="0"><b>Three leaves</b><span class="t">Faith, hope, and love, as the kingdom tells it.</span></li>
+        <li data-hot="leaf:4" tabindex="0"><b>Four leaves</b><span class="t">Good fortune. Yuno’s grimoire.</span></li>
+        <li data-hot="leaf:5" tabindex="0"><b>Five leaves</b><span class="t">Rare and feared. Asta’s anti-magic.</span></li>
+      </ul>
+      <p class="hint">Drag across the clover to turn it.</p>
+    </div>
+  </section>
+
+  <section id="s4" class="chapter">
+    <div class="col">
+      <span class="kicker">Experience · belonging</span>
+      <h2>A squad of misfits.</h2>
+      <p>Asta joins the Black Bulls, the Magic Knights squad other squads look down on, made of people who did not fit anywhere else. Belonging comes from being accepted as he is, not from finally having magic.</p>
+      <ul class="rows">
+        <li data-hot="bull:0" tabindex="0"><b>Outsiders</b><span class="t">Scattered people, each out of place on their own.</span></li>
+        <li data-hot="bull:1" tabindex="0"><b>Found family</b><span class="t">A group that makes room for difference.</span></li>
+        <li data-hot="bull:2" tabindex="0"><b>Rival and friend</b><span class="t">Yuno, two paths pulling each other forward.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s5" class="chapter">
+    <div class="col">
+      <span class="kicker">Journey · belonging and identity</span>
+      <h2>An uneven road.</h2>
+      <p>Moviemental maps this character onto its <b>Belonging and identity</b> journey. Each stage is still a draft until reviewed against specific episodes.</p>
+      <ol class="rows">
+        <li data-hot="jr:0" tabindex="0"><b>Initial pressure</b><span class="t">No magic, low expectations, and a dream of becoming Wizard King.</span></li>
+        <li data-hot="jr:1" tabindex="0"><b>Response and consequences</b><span class="t">Training, rivalry, and conflict with people who doubt him.</span></li>
+        <li data-hot="jr:2" tabindex="0"><b>Change or unresolved outcome</b><span class="t">Belonging found in a group; the larger goal stays in motion.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="s6" class="chapter">
+    <div class="wide">
+      <span class="kicker">Registry record · character-asta</span>
+      <h2>The record.</h2>
+      <div class="record">
+        <div><h3>Experiences</h3><p>Feeling different · social exclusion · belonging · identity formation</p></div>
+        <div><h3>Evidence status</h3><p>Experiential only. No diagnosis is asserted. Experiences are not diagnoses.</p></div>
+        <div><h3>Moods</h3><p>Determination · frustration · hope</p></div>
+        <div><h3>Coping patterns</h3><p>Persistence · physical training · friendship · rivalry as motivation</p></div>
+        <div><h3>Content notes</h3><p>Fantasy violence · peril · bullying and mockery · class prejudice</p></div>
+        <div><h3>May resonate if</h3><p>You have felt like the exception, or found your people somewhere unexpected. A story can resonate; it is not treatment.</p></div>
+      </div>
+      <p class="fine">Review status: needs sources. This is a narrative discovery entry, not a clinical assessment. Episode-level evidence still needs editorial review. The artwork on this page is original; no images, scripts, or dialogue from Black Clover are reproduced. <a href="../index.html#characters">Back to the catalogue</a>.</p>
+    </div>
+  </section>
+</main>
+
+<script type="module">
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x)), lerp = (a, b, t) => a + (b - a) * t;
+const ease = (c, t, dt, r = 4) => c + (t - c) * (1 - Math.exp(-dt * r));
+const sections = $$(".chapter"), navLinks = $$(".bar nav a[data-i]");
+const mobile = matchMedia("(max-width:899px)").matches;
+
+let calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const mt = $("#motionToggle");
+const syncMotion = () => { mt.setAttribute("aria-pressed", String(calm)); mt.textContent = calm ? "Calm motion on" : "Calm motion"; document.body.classList.toggle("calm", calm); };
+mt.addEventListener("click", () => { calm = !calm; syncMotion(); }); syncMotion();
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const el = document.getElementById(a.getAttribute("href").slice(1)); if (!el) return;
+  e.preventDefault(); el.scrollIntoView({ behavior: calm ? "auto" : "smooth" });
+});
+
+let hotKey = "", hotOn = 0;
+$$("[data-hot]").forEach(el => {
+  const on = () => { hotKey = el.dataset.hot; hotOn = 1; el.classList.add("on"); };
+  const off = () => { hotOn = 0; el.classList.remove("on"); };
+  el.addEventListener("pointerenter", on); el.addEventListener("focusin", on);
+  el.addEventListener("pointerleave", off); el.addEventListener("focusout", off);
+});
+const hk = p => hotOn && hotKey.startsWith(p) ? hotKey.slice(p.length) : null;
+
+let reps = 0, repPulse = 0;
+$("#rep").addEventListener("click", () => { reps = Math.min(reps + 1, 999); repPulse = 1; $("#repCount").textContent = reps; });
+
+function targetState() {
+  const vc = scrollY + innerHeight * .5, mids = sections.map(s => s.offsetTop + s.offsetHeight / 2);
+  if (vc <= mids[0]) return 0; if (vc >= mids[mids.length - 1]) return mids.length - 1;
+  let i = 0; while (i < mids.length - 1 && vc > mids[i + 1]) i++;
+  const f = (vc - mids[i]) / (mids[i + 1] - mids[i]), e = clamp((f - .28) / .44);
+  return i + e * e * (3 - 2 * e);
+}
+
+const canvas = $("#field");
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true }); } catch (e) { canvas.style.display = "none"; }
+
+if (renderer) {
+  const N = mobile ? 22000 : 52000, TAU = Math.PI * 2;
+  let seed = 11; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+  const gauss = () => (rnd() + rnd() + rnd() + rnd() - 2) * 1.2;
+  const MANA = [[.35, .82, 1], [.37, .89, .6], [.95, .76, .31], [.98, .52, .38], [.75, .9, 1]];
+  const T = Array.from({ length: 7 }, () => new Float32Array(N * 3));
+  const col = new Float32Array(N * 3), R = new Float32Array(N * 4);
+  const CROWD = Array.from({ length: 13 }, (_, k) => { const a = k / 13 * TAU + .3, r = k ? 2.2 + (k % 3) * .55 : 0; return [Math.cos(a) * r * 1.2, Math.sin(a) * r * .9]; });
+  for (let i = 0; i < N; i++) {
+    const o = i * 3, r4 = [rnd(), rnd(), rnd(), rnd()]; R.set(r4, i * 4);
+    const m = MANA[Math.floor(r4[0] * MANA.length)]; col.set(m, o);
+    /* 0: a sky of everyone's magic, with one empty place */
+    let x = (rnd() - .5) * 15, y = (rnd() - .5) * 8.6;
+    const dx = x - 1.6, dy = y - .4, d = Math.hypot(dx, dy); if (d < 1.15) { x = 1.6 + dx / (d || 1) * (1.15 + rnd() * .3); y = .4 + dy / (d || 1) * (1.15 + rnd() * .3); }
+    T[0].set([x, y, (rnd() - .5) * 5], o);
+    /* 1: a crowd of glowing clusters and one without mana */
+    const k = Math.floor(r4[1] * 13), c = CROWD[k];
+    T[1].set([c[0] + gauss() * .26, c[1] + gauss() * .26, gauss() * .2], o);
+    /* 2: a staircase against the wind */
+    T[2].set([(rnd() - .5) * 10, (rnd() - .5) * 6, (rnd() - .5) * 2], o);
+    /* 3: a five-leaf clover */
+    const th = rnd() * TAU, petal = Math.abs(Math.cos(5 * th / 2)), rr = 2.5 * petal * Math.sqrt(rnd());
+    T[3].set([Math.cos(th) * rr, Math.sin(th) * rr, gauss() * .08], o);
+    /* 4: scattered outsiders and the group they form */
+    T[4].set([(rnd() - .5) * 9, (rnd() - .5) * 5.5, gauss() * .5], o);
+    /* 5: a road */
+    const u = rnd(); T[5].set([-4 + u * 8, -1.8 + u * 2.6 + Math.sin(u * 9) * .35 + gauss() * .07, gauss() * .15], o);
+    /* 6: the clover, small, in a quiet sky */
+    T[6].set([(rnd() - .5) * 15, (rnd() - .5) * 8.6, -2 + (rnd() - .5) * 3], o);
+  }
+  const geo = new THREE.BufferGeometry();
+  T.forEach((a, k) => geo.setAttribute(k ? "aT" + k : "position", new THREE.BufferAttribute(a, 3)));
+  geo.setAttribute("aCol", new THREE.BufferAttribute(col, 3));
+  geo.setAttribute("aR", new THREE.BufferAttribute(R, 4));
+  const TRAIL = 28;
+  const U = {
+    uTime: { value: 0 }, uState: { value: 0 }, uPR: { value: 1 }, uOffX: { value: 0 }, uScale: { value: 1 },
+    uTrail: { value: Array.from({ length: TRAIL }, () => new THREE.Vector4(99, 99, 0, 0)) },
+    uDiff: { value: -1 }, uDiffW: { value: 0 }, uStep: { value: 0 }, uPulse: { value: 0 },
+    uLeaf: { value: 5 }, uLeafW: { value: 0 }, uRot: { value: 0 }, uBull: { value: 1 }, uRival: { value: 0 }, uJr: { value: -1 }, uJrW: { value: 0 }
+  };
+  const mat = new THREE.ShaderMaterial({
+    uniforms: U, transparent: true, depthWrite: false, blending: THREE.NormalBlending,
+    vertexShader: /* glsl */`
+      attribute vec3 aT1; attribute vec3 aT2; attribute vec3 aT3; attribute vec3 aT4; attribute vec3 aT5; attribute vec3 aT6; attribute vec3 aCol; attribute vec4 aR;
+      uniform float uTime, uState, uPR, uOffX, uScale, uDiff, uDiffW, uStep, uPulse, uLeaf, uLeafW, uRot, uBull, uRival, uJr, uJrW;
+      uniform vec4 uTrail[${TRAIL}];
+      varying vec3 vCol; varying float vA;
+      const float TAU = 6.2831853;
+      float h1(float n){ return fract(sin(n) * 43758.5453); }
+      vec3 g3(vec4 r){
+        float a = dot(r, vec4(12.9898, 78.233, 37.719, 11.137)), b = dot(r, vec4(93.989, 67.345, 12.123, 45.731));
+        return vec3(h1(a) + h1(a + 1.7) + h1(a + 3.1) - 1.5, h1(b) + h1(b + 2.3) + h1(b + 4.9) - 1.5, h1(a + b) + h1(a - b + 7.0) - 1.0);
+      }
+      vec3 flow(vec3 p, float t){ return vec3(sin(p.y*1.7+t)+sin(p.z*2.3-t*.7), sin(p.z*1.9+t*.8)+sin(p.x*2.1+t*.5), sin(p.x*1.6-t*.6)+sin(p.y*2.4+t*.9))*.5; }
+      /* each scene returns a position and sets anti (0..1: without magic) and glow (brightness) */
+      vec3 s0(float t, out float anti, out float br){
+        vec3 p = position + flow(position * .4 + aR.x, t * .35) * .18;
+        anti = 0.0; br = .55 + .45 * aR.y;
+        if (aR.w > .985) { float a = aR.x * TAU + t * .6, r = .18 + aR.z * .35; p = vec3(1.6 + cos(a) * r, .4 + sin(a) * r, .2); anti = 1.0; br = 1.0; }
+        return p;
+      }
+      vec3 s1(float t, out float anti, out float br){
+        vec3 p = aT1; float k = floor(aR.y * 13.0);
+        bool asta = k < .5;
+        p += flow(p * .8 + aR.x, t * (asta ? .3 : .9)) * (asta ? .03 : .08);
+        anti = asta ? 1.0 : 0.0; br = asta ? .95 : .65 + .3 * aR.z;
+        float hl = 0.0;
+        if (uDiffW > .01) {
+          if (uDiff < .5) hl = asta ? 1.0 : 0.0;
+          else if (uDiff < 1.5) { if (!asta) { vec2 c = vec2(0.0); p.xy = mix(p.xy, p.xy + normalize(p.xy + vec2(.001)) * .7, uDiffW); } hl = asta ? 1.0 : 0.0; }
+          else { float tier = mod(k, 3.0); p.y += (tier - 1.0) * 1.2 * uDiffW; br *= tier > 1.5 ? 1.0 : .6 + .4 * (1.0 - uDiffW); }
+        }
+        br = mix(br, 1.0, hl * uDiffW);
+        return p;
+      }
+      vec3 s2(float t, out float anti, out float br){
+        bool asta = aR.w > .9;
+        if (asta) {
+          float st = min(uStep, 9.0);
+          vec3 base = vec3(-3.4 + st * .72, -2.2 + st * .48, 0.0);
+          vec3 gg = g3(aR);
+          vec3 p = base + vec3(gg.x * .2, .38 + gg.y * .32, gg.z * .12);
+          p.y += uPulse * .3 * sin(aR.x * 20.0);
+          anti = 1.0; br = 1.0; return p;
+        }
+        if (aR.w > .8) {
+          float k = floor(aR.x * 10.0), u = fract(aR.x * 10.0);
+          vec3 a = vec3(-3.4 + k * .72 - .36, -2.2 + k * .48 - .05, 0.0);
+          vec3 q = u < .6 ? a + vec3(u / .6 * .72, 0.0, 0.0) : a + vec3(.72, (u - .6) / .4 * .48, 0.0);
+          anti = 0.0; br = k <= uStep + .5 ? .9 : .35; return q + vec3(0.0, 0.0, (aR.z - .5) * .1);
+        }
+        vec3 p = aT2;
+        float speed = 2.4 + aR.x * 2.0;
+        p.x = mod(p.x + 5.0 - t * speed, 10.0) - 5.0;
+        p.y += sin(p.x * 1.5 + t * 2.0 + aR.z * 6.0) * .08;
+        anti = 0.0; br = .35 + .3 * aR.y; return p;
+      }
+      vec3 s3(float t, out float anti, out float br){
+        vec3 p = aT3;
+        float th = atan(p.y, p.x); float leaf = floor(mod((th + TAU) / TAU * 5.0 + .5, 5.0));
+        float c = cos(uRot), s = sin(uRot); p.xy = mat2(c, -s, s, c) * p.xy;
+        p.z += sin(t * .8 + length(p.xy) * 2.0) * .06;
+        anti = leaf < .5 ? 1.0 : 0.0; br = .8 + .2 * aR.y;
+        if (uLeafW > .01) {
+          float shown = uLeaf;
+          if (leaf >= shown) { br *= 1.0 - uLeafW * .85; }
+          else if (shown > 4.5 && leaf < .5) br = 1.0;
+        }
+        return p;
+      }
+      vec3 s4(float t, out float anti, out float br){
+        vec3 p = aT4;
+        float k = floor(aR.y * 9.0);
+        vec2 home = vec2(cos(k / 9.0 * TAU), sin(k / 9.0 * TAU)) * 1.55;
+        vec3 gg = g3(aR);
+        vec3 g = vec3(home + gg.xy * .3, gg.z * .3);
+        p = mix(p, g, uBull);
+        p += flow(p * 1.2 + aR.x, t) * mix(.15, .04, uBull);
+        anti = k < .5 ? 1.0 : 0.0; br = .55 + .4 * aR.z;
+        if (uRival > .01 && aR.w > .94) {
+          bool yuno = aR.x > .5; float a = t * .9 + (yuno ? 3.14159 : 0.0); float r = 2.6;
+          vec3 q = vec3(cos(a) * r, sin(a) * r * .6, sin(a) * .5) + g3(aR.wzyx) * .2;
+          p = mix(p, q, uRival); anti = yuno ? 0.0 : 1.0; br = 1.0;
+        }
+        return p;
+      }
+      vec3 s5(float t, out float anti, out float br){
+        vec3 p = aT5; float u = (p.x + 4.0) / 8.0;
+        bool asta = aR.w > .97;
+        if (asta) { float pu = fract(t * .07); p = vec3(-4.0 + pu * 8.0, -1.8 + pu * 2.6 + sin(pu * 9.0) * .35 + .25, 0.0) + vec3((aR.x - .5) * .25, (aR.z - .5) * .25, 0.0); anti = 1.0; br = 1.0; return p; }
+        anti = 0.0; br = .5 + .3 * aR.y;
+        if (uJrW > .01) { float stage = u < .34 ? 0.0 : u < .67 ? 1.0 : 2.0; br = abs(stage - uJr) < .5 ? 1.0 : br * (1.0 - .6 * uJrW); }
+        return p;
+      }
+      vec3 s6(float t, out float anti, out float br){
+        vec3 p = aT6 + flow(aT6 * .3, t * .2) * .1;
+        anti = 0.0; br = .35 + .3 * aR.y;
+        if (aR.w > .9) { vec3 q = aT3 * .42 + vec3(5.3, 2.3, .3); float th = atan(aT3.y, aT3.x); float leaf = floor(mod((th + TAU) / TAU * 5.0 + .5, 5.0)); p = q; anti = leaf < .5 ? 1.0 : 0.0; br = .9; }
+        return p;
+      }
+      vec3 pick(int i, float t, out float anti, out float br){
+        if (i == 0) return s0(t, anti, br); if (i == 1) return s1(t, anti, br); if (i == 2) return s2(t, anti, br);
+        if (i == 3) return s3(t, anti, br); if (i == 4) return s4(t, anti, br); if (i == 5) return s5(t, anti, br); return s6(t, anti, br);
+      }
+      void main(){
+        float s = clamp(uState, 0.0, 6.0); int i0 = int(floor(s)), i1 = min(i0 + 1, 6);
+        float f = fract(s); if (i0 == 6) f = 0.0; f = f * f * (3.0 - 2.0 * f);
+        float a0, b0, a1, b1; vec3 p = pick(i0, uTime, a0, b0); float anti = a0, br = b0;
+        if (f > .001) { vec3 q = pick(i1, uTime, a1, b1); p = mix(p, q, f); anti = mix(a0, a1, f); br = mix(b0, b1, f); }
+        p = p * uScale + vec3(uOffX, 0.0, 0.0);
+        /* the anti-magic blade: mana near the cursor's recent path is cancelled and pushed aside */
+        float cut = 0.0; vec2 push = vec2(0.0);
+        for (int k = 0; k < ${TRAIL}; k++) {
+          vec4 tr = uTrail[k]; if (tr.w <= 0.0) continue;
+          vec2 d = p.xy - tr.xy; float dd = dot(d, d); float w = exp(-dd * 2.6) * tr.w;
+          cut = max(cut, w); push += normalize(d + vec2(.0001)) * w * .05;
+        }
+        p.xy += push * (1.0 - anti);
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_Position = projectionMatrix * mv;
+        float depth = clamp((-mv.z - 8.0) / 12.0, 0.0, 1.0);
+        gl_PointSize = max(1.0, (1.6 + anti * .8) * uPR * (12.0 / -mv.z));
+        vec3 mana = aCol, black = vec3(.04, .04, .05), edge = vec3(.88, .15, .23);
+        float killed = clamp(cut * 1.4, 0.0, 1.0) * (1.0 - anti);
+        vec3 c = mix(mana, mix(vec3(.62, .66, .72), edge, .25), killed);
+        if (anti > .01) c = mix(c, mix(black, edge, .55 + .45 * aR.z), anti);
+        vCol = c;
+        vA = mix(br * (1.0 - .55 * depth), .25, killed * .6);
+        if (anti > .5) vA = max(vA, .9);
+      }`,
+    fragmentShader: /* glsl */`
+      varying vec3 vCol; varying float vA;
+      void main(){ float d = length(gl_PointCoord - .5); if (d > .5) discard; gl_FragColor = vec4(vCol, vA * (1.0 - smoothstep(.34, .5, d))); }`
+  });
+  const scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(40, 1, .1, 100); camera.position.z = 12;
+  const pts = new THREE.Points(geo, mat); pts.frustumCulled = false; scene.add(pts);
+
+  /* the blade's visible edge: a thin red line along the cursor path */
+  const tPos = new Float32Array(TRAIL * 3), tGeo = new THREE.BufferGeometry();
+  tGeo.setAttribute("position", new THREE.BufferAttribute(tPos, 3));
+  const tLine = new THREE.Line(tGeo, new THREE.LineBasicMaterial({ color: 0xe0263a, transparent: true, opacity: .85 }));
+  tLine.frustumCulled = false; scene.add(tLine);
+
+  let halfW = 1, halfH = 1;
+  const OFF = mobile ? [0, 0, 0, 0, 0, 0, 0] : [0, 2.6, 2.6, 2.7, 2.6, 2.6, 0];
+  const resize = () => {
+    renderer.setSize(innerWidth, innerHeight, false); renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); U.uPR.value = renderer.getPixelRatio();
+    camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
+    halfH = Math.tan(THREE.MathUtils.degToRad(20)) * 12; halfW = halfH * camera.aspect;
+    U.uScale.value = Math.min(1, Math.max(.5, camera.aspect * .75));
+  };
+  addEventListener("resize", resize); resize();
+
+  const trail = Array.from({ length: TRAIL }, () => ({ x: 99, y: 99, life: 0 }));
+  let head = 0, lastX = 99, lastY = 99, dragging = false, dragX = 0, rot = 0, rotV = 0;
+  addEventListener("pointermove", e => {
+    const x = (e.clientX / innerWidth * 2 - 1) * halfW, y = -(e.clientY / innerHeight * 2 - 1) * halfH;
+    if (dragging && Math.round(state) === 3) { rotV += (e.clientX - dragX) * .004; dragX = e.clientX; }
+    if (Math.hypot(x - lastX, y - lastY) < .12) return;
+    lastX = x; lastY = y; head = (head + 1) % TRAIL; trail[head] = { x, y, life: 1 };
+  });
+  addEventListener("pointerdown", e => { dragging = true; dragX = e.clientX; });
+  addEventListener("pointerup", () => { dragging = false; });
+
+  let state = targetState(), t = 0, motion = 1;
+  const P = { diffW: 0, leafW: 0, bull: 0, rival: 0, jrW: 0, step: 0, pulse: 0 };
+  const clock = new THREE.Clock();
+  (function frame() {
+    const dt = Math.min(clock.getDelta(), .05);
+    const tgt = targetState(); state = ease(state, tgt, dt, calm ? 3 : 4.5); motion = ease(motion, calm ? .25 : 1, dt, 3); t += dt * motion;
+    const h1 = hk("diff:"), h3 = hk("leaf:"), h4 = hk("bull:"), h5 = hk("jr:");
+    if (h1 !== null) U.uDiff.value = +h1; P.diffW = ease(P.diffW, h1 !== null ? 1 : 0, dt, 4);
+    if (h3 !== null) U.uLeaf.value = +h3; P.leafW = ease(P.leafW, h3 !== null ? 1 : 0, dt, 4);
+    P.bull = ease(P.bull, h4 === "0" ? 0 : 1, dt, 2.2); P.rival = ease(P.rival, h4 === "2" ? 1 : 0, dt, 2.5);
+    if (h5 !== null) U.uJr.value = +h5; P.jrW = ease(P.jrW, h5 !== null ? 1 : 0, dt, 4);
+    P.step = ease(P.step, Math.min(reps, 9), dt, 5); repPulse = Math.max(0, repPulse - dt * 2.5);
+    rot += rotV; rotV *= .92; if (!dragging && !calm) rot += dt * .12;
+    U.uTime.value = t; U.uState.value = state; U.uDiffW.value = P.diffW; U.uLeafW.value = P.leafW; U.uBull.value = P.bull; U.uRival.value = P.rival;
+    U.uJrW.value = P.jrW; U.uStep.value = P.step; U.uPulse.value = repPulse; U.uRot.value = rot;
+    const i0 = Math.floor(state), i1 = Math.min(i0 + 1, 6); U.uOffX.value = lerp(OFF[i0], OFF[i1], state - i0) * U.uScale.value;
+    for (let k = 0; k < TRAIL; k++) {
+      const p = trail[k]; p.life = Math.max(0, p.life - dt * (calm ? 2.4 : 1.1));
+      U.uTrail.value[k].set(p.x, p.y, 0, calm ? p.life * .4 : p.life);
+      const q = trail[(head - k + TRAIL) % TRAIL]; tPos[k * 3] = q.x; tPos[k * 3 + 1] = q.y; tPos[k * 3 + 2] = .5;
+    }
+    tGeo.attributes.position.needsUpdate = true; tLine.material.opacity = trail[head].life * (calm ? .4 : .85);
+    const ni = clamp(Math.round(tgt), 0, 6); navLinks.forEach(a => a.classList.toggle("active", Number(a.dataset.i) === ni));
+    renderer.render(scene, camera); requestAnimationFrame(frame);
+  })();
+}
+</script>
+</body>
+</html>

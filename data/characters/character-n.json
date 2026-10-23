@@ -1,0 +1,66 @@
+{
+  "id": "character-n",
+  "name": "N",
+  "aliases": [
+    "Natural Harmonia Gropius"
+  ],
+  "work_id": "work-n",
+  "psychological_experiences": [
+    {
+      "tag": "social isolation",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-n"
+      ]
+    },
+    {
+      "tag": "manipulation by a caregiver",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-n"
+      ]
+    },
+    {
+      "tag": "idealism and disillusionment",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-n"
+      ]
+    },
+    {
+      "tag": "identity formation",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-n"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "curiosity",
+    "conviction",
+    "disillusionment"
+  ],
+  "coping_patterns": [
+    "deep bond with Pokémon",
+    "searching for truth",
+    "leaving to see the world for himself"
+  ],
+  "journey_ids": [
+    "journey-belonging"
+  ],
+  "content_warnings": [
+    "emotional manipulation of a child",
+    "childhood isolation",
+    "mistreatment of animals (fictional creatures)"
+  ],
+  "source_ids": [
+    "source-n"
+  ],
+  "representation_notes": "Portrays a young person raised in isolation and shaped by an adult's agenda, whose ideals are tested against the wider world. Some fan communities read N as neurodivergent; the games do not state this, so no diagnosis is recorded. Key reveals are late-story spoilers.",
+  "review_status": "needs_sources"
+}

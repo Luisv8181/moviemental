@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>N · Moviemental</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#08090b; --white:#f3f4f2; --mint:#82e1c1;
+  --display:"Syne","Helvetica Neue",Arial,sans-serif; --body:"DM Sans",system-ui,sans-serif; --mono:"DM Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:#fff;font:16px/1.6 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.calm{scroll-behavior:auto}
+#duo{position:fixed;inset:0;z-index:0;background:var(--black)}
+#duo i{position:absolute;inset:0;background:var(--white);clip-path:polygon(0 0,50% 0,50% 100%,0 100%)}
+#field{position:fixed;inset:0;width:100%;height:100%;z-index:1;display:block}
+.bar{position:fixed;left:0;right:0;top:0;z-index:20;height:56px;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 clamp(16px,4vw,48px);background:var(--black);border-bottom:1px solid rgba(243,244,242,.16);font:12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#9aa5b4}
+.bar a,.bar button{color:#9aa5b4;text-decoration:none;background:none;border:0;padding:6px 0;font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer;border-bottom:1px solid transparent}
+.bar a:hover,.bar button:hover{color:var(--white)}
+.bar a.active{color:var(--white);border-bottom-color:var(--mint)}
+.bar .home{color:var(--white)}
+.bar nav{display:flex;gap:clamp(10px,2vw,20px);align-items:center}
+.bar button[aria-pressed="true"]{color:var(--mint)}
+/* everything in main inverts against whatever is behind it, so text reads on both halves */
+main{position:relative;z-index:2;mix-blend-mode:difference;color:#fff}
+section{min-height:100vh;padding:calc(56px + 11vh) clamp(20px,5vw,72px) 12vh;display:flex;flex-direction:column}
+.col{width:min(34rem,100%)}
+.end{margin-top:auto}
+.kicker{display:block;margin:0 0 1rem;font:12px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+h1,h2{font-family:var(--display);font-weight:800;margin:0;line-height:.9;letter-spacing:-.03em}
+h1{font-size:clamp(9rem,30vw,26rem);line-height:.78;letter-spacing:-.06em}
+h2{font-size:clamp(2.6rem,6vw,5.2rem)}
+p{margin:1.1rem 0 0;max-width:62ch}
+.lead{font-size:1.25rem}
+.soft{opacity:.72}
+.meta{margin-top:1.4rem;font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.hint{margin-top:1.6rem;font:12px var(--mono);letter-spacing:.06em;opacity:.72}
+.rows{list-style:none;margin:1.6rem 0 0;padding:0;border-top:1px solid rgba(255,255,255,.5)}
+.rows li{border-bottom:1px solid rgba(255,255,255,.5);padding:.9rem 0;cursor:default}
+.rows li:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.rows b{font-family:var(--display);font-weight:700;font-size:1.5rem;letter-spacing:-.02em;line-height:1.05;display:block}
+.rows li.on b,.rows li:hover b{text-decoration:underline;text-underline-offset:.18em;text-decoration-thickness:2px}
+.rows .t{display:block;opacity:.72}
+.ev{display:inline-block;margin-top:.3rem;font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.duo-ctl{margin-top:1.8rem;display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;font:12px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.duo-ctl input{width:100%;accent-color:#fff}
+.btn{margin-top:1.6rem;display:inline-flex;padding:.85rem 1.3rem;border:1px solid #fff;background:transparent;color:#fff;font:13px var(--mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.btn:hover{background:#fff;color:#000}
+.btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.spoiler .gated{transition:filter .4s, opacity .4s}
+body:not(.spoilers) .spoiler .gated{filter:blur(9px);opacity:.5;user-select:none;pointer-events:none}
+.spoiler .gate{margin-top:1.4rem;font:12px var(--mono);letter-spacing:.06em}
+body.spoilers .spoiler .gate{display:none}
+.record{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:0 2.4rem;margin-top:1.6rem;border-top:1px solid rgba(255,255,255,.5);max-width:64rem}
+.record div{padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.5)}
+.record h3{margin:0 0 .4rem;font:12px var(--mono);letter-spacing:.14em;text-transform:uppercase;font-weight:400;opacity:.72}
+.record p{margin:0}
+.wide{width:min(64rem,100%)}
+.fine{margin-top:2rem;font:12px var(--mono);letter-spacing:.03em;max-width:64rem;opacity:.75}
+.fine a{color:#fff}
+@media (max-width:899px){
+  #field{opacity:.6}
+  .bar nav a:not(.home){display:none}
+}
+</style>
+</head>
+<body>
+<div id="duo" aria-hidden="true"><i id="white"></i></div>
+<canvas id="field" aria-hidden="true"></canvas>
+<header class="bar">
+  <a class="home" href="../index.html#characters">Moviemental</a>
+  <nav aria-label="Sections">
+    <a href="#s0" data-i="0">N</a>
+    <a href="#s1" data-i="1">Voices</a>
+    <a href="#s2" data-i="2">Room</a>
+    <a href="#s3" data-i="3">Wheel</a>
+    <a href="#s4" data-i="4">Truth · ideals</a>
+    <a href="#s5" data-i="5">Shaped</a>
+    <a href="#s6" data-i="6">Record</a>
+    <button id="spoilerToggle" type="button" aria-pressed="false">Spoilers hidden</button>
+    <button id="motionToggle" type="button" aria-pressed="false">Calm motion</button>
+  </nav>
+</header>
+
+<main>
+  <section id="s0" class="chapter">
+    <div class="col end">
+      <span class="kicker">Character feature · draft entry</span>
+      <h1>N</h1>
+      <p class="lead">A young idealist who believes Pokémon should be freed from people, and who has seen very little of the world he wants to change.</p>
+      <p class="meta">Pokémon Black and Pokémon White · video game · 2010 · Game Freak</p>
+      <p class="hint">Move left and right. The world of this story is split in black and white, and so is this page.</p>
+    </div>
+  </section>
+
+  <section id="s1" class="chapter">
+    <div class="col">
+      <span class="kicker">Experience · feeling different</span>
+      <h2>He says he can hear them.</h2>
+      <p>From his first scene, N speaks as if he understands what Pokémon are saying, and he talks about them as friends rather than tools. It sets him apart from the trainers around him, and it is the root of his conviction.</p>
+      <ul class="rows">
+        <li data-hot="voice:0" tabindex="0"><b>Listening</b><span class="t">Treating every Pokémon as someone with something to say.</span></li>
+        <li data-hot="voice:1" tabindex="0"><b>Conviction</b><span class="t">If they can be heard, he reasons, they should not be kept.</span></li>
+      </ul>
+      <p class="hint">Move through the field to listen. Each small voice answers when you come close.</p>
+    </div>
+  </section>
+
+  <section id="s2" class="chapter spoiler">
+    <div class="col">
+      <span class="kicker">Experience · social isolation · late-story detail</span>
+      <h2>The room he grew up in.</h2>
+      <p class="gate">This section describes a late-game location. Turn on spoilers in the top bar to read it.</p>
+      <div class="gated">
+        <p>Late in the story, the player finds N’s childhood room: a bright space full of toys, a train set, a half-pipe, a basketball, but closed off from the outside world. It suggests a childhood spent largely apart from other people.</p>
+        <ul class="rows">
+          <li data-hot="room:0" tabindex="0"><b>The toys</b><span class="t">A childhood that looks playful from the inside.</span></li>
+          <li data-hot="room:1" tabindex="0"><b>The walls</b><span class="t">Very little contact with the world beyond them.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="s3" class="chapter">
+    <div class="col">
+      <span class="kicker">Mood · curiosity</span>
+      <h2>Circles and formulas.</h2>
+      <p>N is drawn to the Ferris wheel in Nimbasa City and to the mathematics behind things that turn and repeat. Order and pattern seem to make the world easier for him to hold.</p>
+      <p class="hint">Scroll to turn the wheel.</p>
+    </div>
+  </section>
+
+  <section id="s4" class="chapter">
+    <div class="col">
+      <span class="kicker">Theme · truth and ideals</span>
+      <h2>Two convictions.</h2>
+      <p>The game pairs two legendary dragons, one of truth and one of ideals. N and the player are each chosen by one. The story treats both convictions as sincere; the question is what each person does with theirs.</p>
+      <div class="duo-ctl"><span>Truth</span><input id="duoRange" type="range" min="-100" max="100" value="0" aria-label="Balance between truth and ideals"><span>Ideals</span></div>
+      <ul class="rows">
+        <li data-hot="duo:0" tabindex="0"><b>White flame</b><span class="t">Truth: seeing the world as it is.</span></li>
+        <li data-hot="duo:1" tabindex="0"><b>Black lightning</b><span class="t">Ideals: the world as it should be.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="s5" class="chapter spoiler">
+    <div class="col">
+      <span class="kicker">Experience · manipulation by a caregiver · late-story reveal</span>
+      <h2>Who shaped him.</h2>
+      <p class="gate">This section contains the story’s major reveal about N. Turn on spoilers in the top bar to read it.</p>
+      <div class="gated">
+        <p>Near the end, it becomes clear that the adult who raised N, Ghetsis, kept him isolated and fed him a single view of the world so he would serve as the public face of Ghetsis’s own plan. N’s ideals were sincere; the agenda behind them was not his.</p>
+        <ul class="rows">
+          <li data-hot="str:0" tabindex="0"><b>The strings</b><span class="t">Beliefs given to a child by someone who needed him to hold them.</span></li>
+          <li data-hot="str:1" tabindex="0"><b>Cutting them</b><span class="t">At the end, N leaves to see the world for himself.</span></li>
+        </ul>
+        <p class="soft">Moviemental records this as an experience of manipulation by a caregiver. It is the story’s portrayal, not a clinical description of abuse.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="s6" class="chapter">
+    <div class="wide">
+      <span class="kicker">Registry record · character-n</span>
+      <h2>The record.</h2>
+      <div class="record">
+        <div><h3>Experiences</h3><p>Social isolation · manipulation by a caregiver · idealism and disillusionment · identity formation</p></div>
+        <div><h3>Evidence status</h3><p>Experiential only. No diagnosis is asserted. Some fans read N as neurodivergent; the games do not state this, so it is not recorded.</p></div>
+        <div><h3>Moods</h3><p>Curiosity · conviction · disillusionment</p></div>
+        <div><h3>Coping patterns</h3><p>Deep bond with Pokémon · searching for truth · leaving to see the world for himself</p></div>
+        <div><h3>Content notes</h3><p>Emotional manipulation of a child · childhood isolation · mistreatment of fictional creatures</p></div>
+        <div><h3>May resonate if</h3><p>You grew up with one view of the world handed to you and had to find your own. A story can resonate; it is not treatment.</p></div>
+      </div>
+      <p class="fine">Journey: Belonging and identity. Review status: needs sources. This is a narrative discovery entry, not a clinical assessment. The artwork on this page is original; no sprites, artwork, or dialogue from Pokémon are reproduced. <a href="../index.html#characters">Back to the catalogue</a>.</p>
+    </div>
+  </section>
+</main>
+
+<script type="module">
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x)), lerp = (a, b, t) => a + (b - a) * t;
+const ease = (c, t, dt, r = 4) => c + (t - c) * (1 - Math.exp(-dt * r));
+const sections = $$(".chapter"), navLinks = $$(".bar nav a[data-i]");
+const mobile = matchMedia("(max-width:899px)").matches;
+
+let calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const mt = $("#motionToggle");
+const syncMotion = () => { mt.setAttribute("aria-pressed", String(calm)); mt.textContent = calm ? "Calm motion on" : "Calm motion"; document.body.classList.toggle("calm", calm); };
+mt.addEventListener("click", () => { calm = !calm; syncMotion(); }); syncMotion();
+const st = $("#spoilerToggle");
+st.addEventListener("click", () => {
+  const on = !document.body.classList.contains("spoilers");
+  document.body.classList.toggle("spoilers", on);
+  st.setAttribute("aria-pressed", String(on)); st.textContent = on ? "Spoilers shown" : "Spoilers hidden";
+  $$(".spoiler .gated").forEach(g => g.toggleAttribute("inert", !on));
+});
+$$(".spoiler .gated").forEach(g => g.setAttribute("inert", ""));
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const el = document.getElementById(a.getAttribute("href").slice(1)); if (!el) return;
+  e.preventDefault(); el.scrollIntoView({ behavior: calm ? "auto" : "smooth" });
+});
+
+let hotKey = "", hotOn = 0;
+$$("[data-hot]").forEach(el => {
+  const on = () => { hotKey = el.dataset.hot; hotOn = 1; el.classList.add("on"); };
+  const off = () => { hotOn = 0; el.classList.remove("on"); };
+  el.addEventListener("pointerenter", on); el.addEventListener("focusin", on);
+  el.addEventListener("pointerleave", off); el.addEventListener("focusout", off);
+});
+const hk = p => hotOn && hotKey.startsWith(p) ? hotKey.slice(p.length) : null;
+
+function targetState() {
+  const vc = scrollY + innerHeight * .5, mids = sections.map(s => s.offsetTop + s.offsetHeight / 2);
+  if (vc <= mids[0]) return 0; if (vc >= mids[mids.length - 1]) return mids.length - 1;
+  let i = 0; while (i < mids.length - 1 && vc > mids[i + 1]) i++;
+  const f = (vc - mids[i]) / (mids[i + 1] - mids[i]), e = clamp((f - .28) / .44);
+  return i + e * e * (3 - 2 * e);
+}
+
+/* the split between the black and white halves, in screen space (-1 left edge, 1 right edge) */
+const TILT = .12;
+let split = 0, splitTarget = 0, cursorN = 0;
+const whiteEl = $("#white");
+function drawSplit() {
+  const top = (split + TILT + 1) / 2 * 100, bottom = (split - TILT + 1) / 2 * 100;
+  whiteEl.style.clipPath = `polygon(0 0, ${top}% 0, ${bottom}% 100%, 0 100%)`;
+}
+addEventListener("pointermove", e => { cursorN = e.clientX / innerWidth * 2 - 1; });
+const duoRange = $("#duoRange");
+
+const canvas = $("#field");
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true }); } catch (e) { canvas.style.display = "none"; }
+const SPLITS = [null, -1.4, 1.4, .35, "range", -1.4, 1.4];
+
+if (!renderer) {
+  (function loop() { const s = Math.round(targetState()); const v = SPLITS[s]; splitTarget = v === null ? cursorN * .8 : v === "range" ? duoRange.value / 100 : v; split = lerp(split, splitTarget, .1); drawSplit(); requestAnimationFrame(loop); })();
+} else {
+  const N = mobile ? 22000 : 50000, TAU = Math.PI * 2;
+  let seed = 5; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+  const gauss = () => (rnd() + rnd() + rnd() + rnd() - 2) * 1.2;
+  const T = Array.from({ length: 7 }, () => new Float32Array(N * 3)), R = new Float32Array(N * 4);
+  const VOICES = Array.from({ length: 34 }, () => [(rnd() - .5) * 9, (rnd() - .5) * 5.4, rnd() * TAU]);
+  for (let i = 0; i < N; i++) {
+    const o = i * 3, r = [rnd(), rnd(), rnd(), rnd()]; R.set(r, i * 4);
+    T[0].set([(rnd() - .5) * 15, (rnd() - .5) * 8.6, (rnd() - .5) * 4], o);
+    const v = VOICES[Math.floor(r[1] * VOICES.length)]; T[1].set([v[0], v[1], v[2]], o);
+    T[2].set([rnd(), rnd(), rnd()], o);
+    T[3].set([rnd(), rnd(), rnd()], o);
+    T[4].set([gauss(), gauss(), gauss()], o);
+    T[5].set([rnd(), rnd(), rnd()], o);
+    const a = rnd() * TAU, d = Math.pow(rnd(), .6) * 7; T[6].set([Math.cos(a) * d, Math.sin(a) * d * .6, (rnd() - .5) * 3], o);
+  }
+  const geo = new THREE.BufferGeometry();
+  T.forEach((a, k) => geo.setAttribute(k ? "aT" + k : "position", new THREE.BufferAttribute(a, 3)));
+  geo.setAttribute("aR", new THREE.BufferAttribute(R, 4));
+  const U = {
+    uTime: { value: 0 }, uState: { value: 0 }, uPR: { value: 1 }, uOffX: { value: 0 }, uScale: { value: 1 }, uSplit: { value: 0 }, uTilt: { value: TILT },
+    uMouse: { value: new THREE.Vector2(99, 99) }, uListen: { value: 0 }, uWheel: { value: 0 }, uRoom: { value: -1 }, uRoomW: { value: 0 },
+    uDuo: { value: -1 }, uDuoW: { value: 0 }, uCut: { value: 0 }, uStrW: { value: 0 }, uSpoil: { value: 0 }
+  };
+  const mat = new THREE.ShaderMaterial({
+    uniforms: U, transparent: true, depthWrite: false,
+    vertexShader: /* glsl */`
+      attribute vec3 aT1; attribute vec3 aT2; attribute vec3 aT3; attribute vec3 aT4; attribute vec3 aT5; attribute vec3 aT6; attribute vec4 aR;
+      uniform float uTime, uState, uPR, uOffX, uScale, uSplit, uTilt, uListen, uWheel, uRoom, uRoomW, uDuo, uDuoW, uCut, uStrW, uSpoil;
+      uniform vec2 uMouse;
+      varying float vInk; varying float vAcc; varying float vA;
+      const float TAU = 6.2831853;
+      vec3 flow(vec3 p, float t){ return vec3(sin(p.y*1.7+t)+sin(p.z*2.3-t*.7), sin(p.z*1.9+t*.8)+sin(p.x*2.1+t*.5), sin(p.x*1.6-t*.6)+sin(p.y*2.4+t*.9))*.5; }
+      float h1(float n){ return fract(sin(n) * 43758.5453); }
+      vec3 g3(vec4 r){ float a = dot(r, vec4(12.99, 78.23, 37.72, 11.14)), b = dot(r, vec4(93.99, 67.35, 12.12, 45.73));
+        return vec3(h1(a) + h1(a + 1.7) + h1(a + 3.1) - 1.5, h1(b) + h1(b + 2.3) + h1(b + 4.9) - 1.5, h1(a + b) + h1(a - b + 7.0) - 1.0); }
+
+      vec3 s0(float t, out float acc, out float br){ vec3 p = position + flow(position * .35 + aR.x, t * .3) * .25; acc = aR.w > .992 ? 1.0 : 0.0; br = .5 + .5 * aR.y; return p; }
+      vec3 s1(float t, out float acc, out float br){
+        vec3 c = vec3(aT1.xy, 0.0); float ph = aT1.z;
+        vec3 gg = g3(aR);
+        if (aR.w < .3) { acc = 1.0; br = 1.0; return c + gg * vec3(.09, .09, .05); }
+        float near = 1.0 - smoothstep(0.0, 2.2, distance(c.xy * uScale, uMouse - vec2(uOffX, 0.0)));
+        float speed = .35 + near * 1.2 + uListen * .5;
+        float rr = fract(t * speed + ph / TAU + aR.z * .15) * (.55 + near * .9);
+        float a = aR.x * TAU;
+        acc = 0.0; br = (1.0 - rr / 1.5) * (.35 + near * .65);
+        return c + vec3(cos(a) * rr, sin(a) * rr, 0.0);
+      }
+      vec3 s2(float t, out float acc, out float br){
+        float k = aR.w; acc = 0.0; br = .85; vec3 p;
+        vec3 gg = g3(aR);
+        if (k < .3) { float u = aT2.x * 4.0, e = floor(u), f = fract(u); vec2 A = vec2(-3.2, -2.2), B = vec2(3.2, -2.2), C = vec2(3.2, 2.2), D = vec2(-3.2, 2.2);
+          vec2 q = e < 1.0 ? mix(A, B, f) : e < 2.0 ? mix(B, C, f) : e < 3.0 ? mix(C, D, f) : mix(D, A, f); p = vec3(q, 0.0) + gg * .02; br = .9 * mix(1.0, 1.0, uRoomW); if (abs(uRoom - 1.0) < .5) { br = 1.0; acc = uRoomW; } }
+        else if (k < .55) { float a = aT2.y * TAU; vec2 q = vec2(cos(a) * 1.7 - .6, sin(a) * .75 - 1.1); p = vec3(q, 0.0) + gg * .015;
+          float car = fract(aT2.y - t * .08); if (car < .1) { acc = 1.0; p += gg * .05; br = 1.0; } }
+        else if (k < .75) { float u = aT2.x; float a = mix(3.14159, 6.28318, u); p = vec3(1.8 + cos(a) * 1.0, .7 + sin(a) * 1.0, 0.0) + gg * .02; }
+        else if (k < .85) { float a = aT2.y * TAU; float b = .32 + abs(sin(t * 2.2)) * .5; p = vec3(-1.9, -.3 + b, 0.0) + vec3(cos(a), sin(a), 0.0) * .3 * sqrt(aT2.z); }
+        else { p = vec3((aT2.x - .5) * 6.2, (aT2.y - .5) * 4.2, (aT2.z - .5)) + flow(aT2 * 3.0, t * .2) * .05; br = .3; }
+        if (uRoomW > .01 && abs(uRoom) < .5 && k >= .3 && k < .85) { br = 1.0; acc = max(acc, uRoomW * .7); }
+        if (uRoomW > .01 && abs(uRoom - 1.0) < .5 && k >= .3) br *= 1.0 - uRoomW * .6;
+        br *= mix(.25, 1.0, uSpoil);
+        return p;
+      }
+      vec3 s3(float t, out float acc, out float br){
+        float k = aR.w, rot = uWheel; acc = 0.0; br = .85; vec3 gg = g3(aR); vec3 p;
+        vec2 hub = vec2(0.0, .5); float R = 2.4;
+        if (k < .38) { float a = aT3.x * TAU + rot; p = vec3(hub + vec2(cos(a), sin(a)) * R, 0.0) + gg * .02; }
+        else if (k < .62) { float sp = floor(aT3.x * 12.0), a = sp / 12.0 * TAU + rot; p = vec3(hub + vec2(cos(a), sin(a)) * R * aT3.y, 0.0) + gg * .01; br = .6; }
+        else if (k < .82) { float c = floor(aT3.x * 12.0), a = c / 12.0 * TAU + rot; vec2 cab = hub + vec2(cos(a), sin(a)) * R - vec2(0.0, .22); p = vec3(cab, 0.0) + gg * vec3(.12, .1, .05); acc = c < .5 ? 1.0 : 0.0; br = 1.0; }
+        else { float side = aT3.x < .5 ? -1.0 : 1.0, u = aT3.y; p = vec3(mix(hub, vec2(side * 1.4, -2.6), u), 0.0) + gg * .015; br = .7; }
+        return p;
+      }
+      vec3 s4(float t, out float acc, out float br){
+        bool white = aR.w < .5; acc = 0.0; br = .9; vec3 gg = aT4;
+        vec3 p;
+        if (white) { float u = fract(aR.x + t * .18); float w = (1.0 - u) * .9 + .1; p = vec3(-2.0 + gg.x * w * .45 + sin(u * 9.0 + t * 2.0 + aR.z * 6.0) * .25 * u, -2.0 + u * 4.2, gg.z * .3); }
+        else { float u = aR.x; float zz = floor(u * 6.0); float f = fract(u * 6.0); float x0 = mod(zz, 2.0) < .5 ? -.5 : .5; float x1 = -x0;
+          p = vec3(2.0 + mix(x0, x1, f) * (1.0 - u * .3) + gg.x * .06, 2.2 - u * 4.4 + gg.y * .06, gg.z * .2);
+          p.xy += vec2(h1(floor(t * 8.0) + aR.y * 50.0) - .5, 0.0) * .12; }
+        if (uDuoW > .01) { bool on = (uDuo < .5) == white; br = on ? 1.0 : br * (1.0 - .65 * uDuoW); acc = on ? uDuoW * .5 : 0.0; }
+        return p;
+      }
+      vec3 s5(float t, out float acc, out float br){
+        float k = aR.w; acc = 0.0; br = .85; vec3 gg = g3(aR); vec3 p;
+        vec2 fig = vec2(0.0, -1.4);
+        if (k < .18) { p = vec3(fig + vec2(gg.x * .2, gg.y * .45), gg.z * .1); acc = 1.0; br = 1.0; }
+        else if (k < .26) { p = vec3((aT5.x - .5) * 3.2, 2.6, 0.0) + gg * .02; br = .7; }
+        else if (k < .8) {
+          float s = floor(aT5.x * 7.0); float x0 = -1.6 + s * (3.2 / 6.0); vec2 top = vec2(x0, 2.6), bot = fig + vec2((s - 3.0) * .09, .35);
+          vec2 q = mix(top, bot, aT5.y); float fall = uCut * aT5.y * (1.5 + aR.z) * 1.6;
+          p = vec3(q + vec2(sin(aT5.y * 6.0 + t) * .03, -fall), 0.0); br = .75 * (1.0 - uCut * .7);
+        } else { p = vec3((aT5.x - .5) * 9.0, (aT5.y - .5) * 6.0, (aT5.z - .5) * 2.0) + flow(aT5 * 2.0, t * .2) * .1; br = .25; }
+        br *= mix(.25, 1.0, uSpoil);
+        return p;
+      }
+      vec3 s6(float t, out float acc, out float br){ vec3 p = aT6 + flow(aT6 * .3, t * .25) * .2; acc = aR.w > .985 ? 1.0 : 0.0; br = .4 + .4 * aR.y; return p; }
+      vec3 pick(int i, float t, out float acc, out float br){
+        if (i == 0) return s0(t, acc, br); if (i == 1) return s1(t, acc, br); if (i == 2) return s2(t, acc, br);
+        if (i == 3) return s3(t, acc, br); if (i == 4) return s4(t, acc, br); if (i == 5) return s5(t, acc, br); return s6(t, acc, br);
+      }
+      void main(){
+        float s = clamp(uState, 0.0, 6.0); int i0 = int(floor(s)), i1 = min(i0 + 1, 6);
+        float f = fract(s); if (i0 == 6) f = 0.0; f = f * f * (3.0 - 2.0 * f);
+        float a0, b0, a1, b1; vec3 p = pick(i0, uTime, a0, b0); float acc = a0, br = b0;
+        if (f > .001) { vec3 q = pick(i1, uTime, a1, b1); p = mix(p, q, f); acc = mix(a0, a1, f); br = mix(b0, b1, f); }
+        p = p * uScale + vec3(uOffX, 0.0, 0.0);
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_Position = projectionMatrix * mv;
+        vec2 ndc = gl_Position.xy / gl_Position.w;
+        /* a particle on the white half is drawn in ink, on the black half in light */
+        vInk = ndc.x < uSplit + uTilt * ndc.y ? 1.0 : 0.0;
+        vAcc = acc;
+        float depth = clamp((-mv.z - 8.0) / 12.0, 0.0, 1.0);
+        gl_PointSize = max(1.0, (1.6 + acc * .8) * uPR * (12.0 / -mv.z));
+        vA = br * (1.0 - .55 * depth);
+      }`,
+    fragmentShader: /* glsl */`
+      varying float vInk; varying float vAcc; varying float vA;
+      void main(){
+        float d = length(gl_PointCoord - .5); if (d > .5) discard;
+        vec3 ink = vec3(.05, .055, .065), light = vec3(.95, .96, .95);
+        vec3 accN = vec3(.51, .88, .76), accD = vec3(.03, .5, .38);
+        vec3 c = mix(light, ink, vInk); c = mix(c, mix(accN, accD, vInk), vAcc);
+        gl_FragColor = vec4(c, vA * (1.0 - smoothstep(.34, .5, d)));
+      }`
+  });
+  const scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(40, 1, .1, 100); camera.position.z = 12;
+  const pts = new THREE.Points(geo, mat); pts.frustumCulled = false; scene.add(pts);
+  let halfW = 1, halfH = 1;
+  const OFF = mobile ? [0, 0, 0, 0, 0, 0, 0] : [1.8, 2.7, 2.7, 2.9, 2.6, 2.7, 0];
+  const resize = () => {
+    renderer.setSize(innerWidth, innerHeight, false); renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); U.uPR.value = renderer.getPixelRatio();
+    camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
+    halfH = Math.tan(THREE.MathUtils.degToRad(20)) * 12; halfW = halfH * camera.aspect; U.uScale.value = Math.min(1, Math.max(.5, camera.aspect * .75));
+  };
+  addEventListener("resize", resize); resize();
+  addEventListener("pointermove", e => { U.uMouse.value.set((e.clientX / innerWidth * 2 - 1) * halfW, -(e.clientY / innerHeight * 2 - 1) * halfH); });
+
+  let state = targetState(), t = 0, motion = 1, wheel = 0, lastY = scrollY;
+  const P = { listen: 0, roomW: 0, duoW: 0, cut: 0, spoil: 0 };
+  const clock = new THREE.Clock();
+  (function frame() {
+    const dt = Math.min(clock.getDelta(), .05);
+    const tgt = targetState(); state = ease(state, tgt, dt, calm ? 3 : 4.5); motion = ease(motion, calm ? .25 : 1, dt, 3); t += dt * motion;
+    wheel += (scrollY - lastY) * .0035 + dt * .05 * motion; lastY = scrollY;
+    const hv = hk("voice:"), hr = hk("room:"), hd = hk("duo:"), hs = hk("str:");
+    P.listen = ease(P.listen, hv !== null ? 1 : 0, dt, 3);
+    if (hr !== null) U.uRoom.value = +hr; P.roomW = ease(P.roomW, hr !== null ? 1 : 0, dt, 4);
+    if (hd !== null) U.uDuo.value = +hd; P.duoW = ease(P.duoW, hd !== null ? 1 : 0, dt, 4);
+    P.cut = ease(P.cut, hs === "1" ? 1 : 0, dt, 1.6);
+    P.spoil = ease(P.spoil, document.body.classList.contains("spoilers") ? 1 : 0, dt, 3);
+    U.uTime.value = t; U.uState.value = state; U.uListen.value = P.listen; U.uWheel.value = wheel; U.uRoomW.value = P.roomW;
+    U.uDuoW.value = P.duoW; U.uCut.value = P.cut; U.uSpoil.value = P.spoil;
+    const i0 = Math.floor(state), i1 = Math.min(i0 + 1, 6); U.uOffX.value = lerp(OFF[i0], OFF[i1], state - i0) * U.uScale.value;
+    const ni = clamp(Math.round(tgt), 0, 6), sv = SPLITS[ni];
+    splitTarget = sv === null ? cursorN * .85 : sv === "range" ? -duoRange.value / 100 * .9 : sv;
+    if (ni === 4 && hd !== null) splitTarget = hd === "0" ? .9 : -.9;
+    split = ease(split, splitTarget, dt, calm ? 2 : 5); U.uSplit.value = split; drawSplit();
+    navLinks.forEach(a => a.classList.toggle("active", Number(a.dataset.i) === ni));
+    renderer.render(scene, camera); requestAnimationFrame(frame);
+  })();
+}
+</script>
+</body>
+</html>
