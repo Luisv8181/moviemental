@@ -48,7 +48,9 @@
     "friendship",
     "help-seeking"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-trust"
+  ],
   "content_warnings": [
     "sexual abuse",
     "suicide",
