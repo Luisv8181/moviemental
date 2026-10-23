@@ -47,7 +47,9 @@
     "withdrawal",
     "supportive relationships"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-accountability"
+  ],
   "content_warnings": [
     "depression themes",
     "family abuse",
