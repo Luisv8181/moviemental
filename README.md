@@ -55,7 +55,7 @@ See [the roadmap](docs/ROADMAP.md), [the project model](docs/PROJECT_MODEL.md), 
 
 ## Website prototype
 
-An interactive static-site prototype is now in the repository root. It includes live search over the JSON registry, media-type filtering, topic shortcuts, character detail panels, journey exploration, a guided theme-based recommendation flow, live registry coverage metrics, and an expansion area for Hispanic and Dominican media. See [the website preview guide](docs/WEBSITE.md) and [the recommendation approach](docs/RECOMMENDATION_APPROACH.md).
+An interactive static-site prototype is now in the repository root. It includes live search over the JSON registry, media-type filtering, topic shortcuts, character detail panels, journey exploration, a recognition-first experience discovery section, a guided theme-based recommendation flow, live registry coverage metrics, and an expansion area for Hispanic and Dominican media. See [the website preview guide](docs/WEBSITE.md) and [the recommendation approach](docs/RECOMMENDATION_APPROACH.md).
 
 The data validation workflow has passed on the current pilot dataset. GitHub Pages deployment is configured as a workflow, but the repository's Pages site is not yet enabled; the deployment job will not publish until Pages is configured in repository settings. The repository remains private.
 
