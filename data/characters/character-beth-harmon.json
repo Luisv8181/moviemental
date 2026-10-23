@@ -47,7 +47,9 @@
     "intellectual focus",
     "connection"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-substance-use"
+  ],
   "content_warnings": [
     "substance use",
     "bereavement",
