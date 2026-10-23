@@ -1,0 +1,70 @@
+{
+  "id": "character-sam-gardner",
+  "name": "Sam Gardner",
+  "work_id": "work-sam-gardner",
+  "psychological_experiences": [
+    {
+      "tag": "social communication differences",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-sam-gardner"
+      ]
+    },
+    {
+      "tag": "sensory overwhelm",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-sam-gardner"
+      ]
+    },
+    {
+      "tag": "independence",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-sam-gardner"
+      ]
+    },
+    {
+      "tag": "belonging",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-sam-gardner"
+      ]
+    }
+  ],
+  "diagnoses": [
+    {
+      "tag": "autism",
+      "evidence_status": "explicit_in_work",
+      "evidence": "The series identifies Sam as autistic; review autistic-led sources before treating the portrayal as representative.",
+      "source_ids": [
+        "source-sam-gardner"
+      ]
+    }
+  ],
+  "moods": [
+    "anxiety",
+    "curiosity",
+    "frustration"
+  ],
+  "coping_patterns": [
+    "routines",
+    "special interests",
+    "support network"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "family conflict",
+    "bullying",
+    "relationship stress"
+  ],
+  "source_ids": [
+    "source-sam-gardner"
+  ],
+  "representation_notes": "Series identifies Sam as autistic; include autistic perspectives and avoid generalizing.",
+  "review_status": "needs_sources"
+}
