@@ -1,0 +1,61 @@
+{
+  "id": "character-madeline-celeste",
+  "name": "Madeline",
+  "work_id": "work-madeline-celeste",
+  "psychological_experiences": [
+    {
+      "tag": "anxiety",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-madeline-celeste"
+      ]
+    },
+    {
+      "tag": "self-criticism",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-madeline-celeste"
+      ]
+    },
+    {
+      "tag": "internal conflict",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-madeline-celeste"
+      ]
+    },
+    {
+      "tag": "perseverance",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-madeline-celeste"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "fear",
+    "frustration",
+    "determination"
+  ],
+  "coping_patterns": [
+    "avoidance",
+    "persistence",
+    "self-reflection"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "panic themes",
+    "depression themes",
+    "suicide references"
+  ],
+  "source_ids": [
+    "source-madeline-celeste"
+  ],
+  "representation_notes": "Externalizes internal struggle through symbolism; not a literal clinical account.",
+  "review_status": "needs_sources"
+}
