@@ -1,0 +1,62 @@
+{
+  "id": "character-rue-bennett",
+  "name": "Rue Bennett",
+  "work_id": "work-rue-bennett",
+  "psychological_experiences": [
+    {
+      "tag": "substance use",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-rue-bennett"
+      ]
+    },
+    {
+      "tag": "grief",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-rue-bennett"
+      ]
+    },
+    {
+      "tag": "family conflict",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-rue-bennett"
+      ]
+    },
+    {
+      "tag": "ambivalence about recovery",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-rue-bennett"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "numbness",
+    "distress",
+    "longing"
+  ],
+  "coping_patterns": [
+    "substance use",
+    "avoidance",
+    "intermittent help-seeking"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "substance use",
+    "overdose",
+    "suicide",
+    "violence"
+  ],
+  "source_ids": [
+    "source-rue-bennett"
+  ],
+  "representation_notes": "High-intensity portrayal of substance use and relational consequences.",
+  "review_status": "needs_sources"
+}
