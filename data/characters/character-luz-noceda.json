@@ -47,7 +47,9 @@
     "friendship",
     "self-advocacy"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-belonging"
+  ],
   "content_warnings": [
     "bereavement themes",
     "family conflict",
