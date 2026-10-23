@@ -1,0 +1,41 @@
+{
+  "id": "journey-intrusive-thoughts",
+  "title": "Living with intrusive thoughts and anxiety",
+  "summary": "Navigating uncertainty, repetitive thoughts, and the effects on relationships and daily life.",
+  "journey_type": "anxiety",
+  "character_ids": [
+    "character-aza-holmes",
+    "character-madeline-celeste"
+  ],
+  "work_ids": [
+    "work-aza-holmes",
+    "work-madeline-celeste"
+  ],
+  "stages": [
+    {
+      "order": 1,
+      "label": "Initial pressure",
+      "description": "Identify the circumstances, stressors, and relationships established by the work."
+    },
+    {
+      "order": 2,
+      "label": "Response and consequences",
+      "description": "Document coping patterns, barriers, turning points, and effects on relationships."
+    },
+    {
+      "order": 3,
+      "label": "Change or unresolved outcome",
+      "description": "Record the ending without assuming recovery is linear or complete."
+    }
+  ],
+  "turning_points": [],
+  "support_and_barriers": [],
+  "outcome_type": "to_be_reviewed",
+  "themes": [],
+  "content_warnings": [],
+  "source_ids": [
+    "source-aza-holmes",
+    "source-madeline-celeste"
+  ],
+  "review_status": "needs_sources"
+}
