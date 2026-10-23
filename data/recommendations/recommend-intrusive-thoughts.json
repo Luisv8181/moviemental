@@ -1,0 +1,25 @@
+{
+  "id": "recommend-intrusive-thoughts",
+  "goal": "understand_an_experience",
+  "goal_detail": "Explore anxiety and intrusive thoughts through fiction",
+  "work_ids": [
+    "work-aza-holmes",
+    "work-madeline-celeste"
+  ],
+  "journey_ids": [
+    "journey-intrusive-thoughts"
+  ],
+  "why_it_may_fit": "The novel and game use different narrative forms to explore intrusive thoughts, anxiety, and internal struggle.",
+  "limitations": "The game uses metaphor and the novel is a single character's narrative; neither defines everyone's experience.",
+  "emotional_intensity": "moderate",
+  "content_warnings": [
+    "intrusive thoughts",
+    "anxiety",
+    "suicide references"
+  ],
+  "source_ids": [
+    "source-aza-holmes",
+    "source-madeline-celeste"
+  ],
+  "review_status": "needs_sources"
+}
