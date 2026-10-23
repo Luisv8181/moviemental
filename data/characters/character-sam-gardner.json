@@ -56,7 +56,9 @@
     "special interests",
     "support network"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-diagnosis"
+  ],
   "content_warnings": [
     "family conflict",
     "bullying",
