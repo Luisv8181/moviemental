@@ -1,0 +1,61 @@
+{
+  "id": "character-ted-lasso",
+  "name": "Ted Lasso",
+  "work_id": "work-ted-lasso",
+  "psychological_experiences": [
+    {
+      "tag": "panic symptoms",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-ted-lasso"
+      ]
+    },
+    {
+      "tag": "concealed distress",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-ted-lasso"
+      ]
+    },
+    {
+      "tag": "grief",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-ted-lasso"
+      ]
+    },
+    {
+      "tag": "help-seeking",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-ted-lasso"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "optimism",
+    "fear",
+    "sadness"
+  ],
+  "coping_patterns": [
+    "humor",
+    "social connection",
+    "therapy"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "panic attacks",
+    "bereavement",
+    "divorce"
+  ],
+  "source_ids": [
+    "source-ted-lasso"
+  ],
+  "representation_notes": "Explores outward positivity alongside private distress and help-seeking.",
+  "review_status": "needs_sources"
+}
