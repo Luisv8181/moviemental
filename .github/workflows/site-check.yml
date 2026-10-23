@@ -1,0 +1,44 @@
+name: Check Moviemental website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'assets/**'
+      - 'data/**'
+      - '.github/workflows/site-check.yml'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: node --check assets/js/app.js
+      - name: Check manifest and referenced files
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          manifest = json.loads(Path("data/index.json").read_text(encoding="utf-8"))
+          for kind, paths in manifest.items():
+              for item in paths:
+                  path = Path(item)
+                  if not path.is_file():
+                      raise SystemExit(f"Missing {kind} file: {item}")
+                  if path.suffix == ".json":
+                      json.loads(path.read_text(encoding="utf-8"))
+          print("Website manifest and all referenced JSON records are valid.")
+          PY
+      - name: Check required site assets
+        run: |
+          test -f index.html
+          test -f assets/css/site.css
+          test -f assets/js/app.js
+          echo "Required website assets exist."
