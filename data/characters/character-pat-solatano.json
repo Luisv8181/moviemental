@@ -47,7 +47,9 @@
     "family support",
     "relationship connection"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-hidden-distress"
+  ],
   "content_warnings": [
     "psychiatric hospitalization",
     "violence",
