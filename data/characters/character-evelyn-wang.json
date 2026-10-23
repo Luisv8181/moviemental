@@ -1,0 +1,61 @@
+{
+  "id": "character-evelyn-wang",
+  "name": "Evelyn Wang",
+  "work_id": "work-evelyn-wang",
+  "psychological_experiences": [
+    {
+      "tag": "overwhelm",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-evelyn-wang"
+      ]
+    },
+    {
+      "tag": "family conflict",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-evelyn-wang"
+      ]
+    },
+    {
+      "tag": "identity strain",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-evelyn-wang"
+      ]
+    },
+    {
+      "tag": "meaning-making",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-evelyn-wang"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "frustration",
+    "despair",
+    "tenderness"
+  ],
+  "coping_patterns": [
+    "avoidance",
+    "humor",
+    "reconnection"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "violence",
+    "existential distress",
+    "family conflict"
+  ],
+  "source_ids": [
+    "source-evelyn-wang"
+  ],
+  "representation_notes": "Surreal story about overwhelm, generational conflict, and choosing connection.",
+  "review_status": "needs_sources"
+}
