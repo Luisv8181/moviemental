@@ -47,7 +47,9 @@
     "hypervigilance",
     "attachment"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-grief"
+  ],
   "content_warnings": [
     "graphic violence",
     "bereavement",
