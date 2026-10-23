@@ -38,7 +38,9 @@
     "avoidance",
     "reconnection"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-emotional-adjustment"
+  ],
   "content_warnings": [
     "family separation",
     "emotional distress"
