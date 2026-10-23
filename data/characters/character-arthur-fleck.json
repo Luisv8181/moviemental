@@ -47,7 +47,9 @@
     "withdrawal",
     "violence"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-representation"
+  ],
   "content_warnings": [
     "graphic violence",
     "suicide",
