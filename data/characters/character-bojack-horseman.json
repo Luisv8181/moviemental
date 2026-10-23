@@ -47,7 +47,9 @@
     "avoidance",
     "humor"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-accountability"
+  ],
   "content_warnings": [
     "substance use",
     "suicide themes",
