@@ -48,7 +48,9 @@
     "humor",
     "relationship-building"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-trust"
+  ],
   "content_warnings": [
     "childhood abuse",
     "violence",
