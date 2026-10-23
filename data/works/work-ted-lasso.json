@@ -1,0 +1,19 @@
+{
+  "id": "work-ted-lasso",
+  "title": "Ted Lasso",
+  "media_type": "television_series",
+  "release_year": 2020,
+  "country_or_region": [],
+  "language": [
+    "en"
+  ],
+  "source_ids": [
+    "source-ted-lasso"
+  ],
+  "content_warnings": [
+    "panic attacks",
+    "bereavement",
+    "divorce"
+  ],
+  "review_status": "draft"
+}
