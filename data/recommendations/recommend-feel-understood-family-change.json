@@ -1,0 +1,27 @@
+{
+  "id": "recommend-feel-understood-family-change",
+  "goal": "feel_understood",
+  "goal_detail": "Feeling overwhelmed by family change or growing up",
+  "work_ids": [
+    "work-riley-andersen",
+    "work-mei-lee",
+    "work-mirabel-madrigal"
+  ],
+  "journey_ids": [
+    "journey-emotional-adjustment",
+    "journey-belonging"
+  ],
+  "why_it_may_fit": "These stories explore mixed emotions, family expectations, and the effort to find belonging during change.",
+  "limitations": "They are stylized fictional stories and do not represent every family's experience or provide clinical guidance.",
+  "emotional_intensity": "gentle",
+  "content_warnings": [
+    "family conflict",
+    "emotional distress"
+  ],
+  "source_ids": [
+    "source-riley-andersen",
+    "source-mei-lee",
+    "source-mirabel-madrigal"
+  ],
+  "review_status": "needs_sources"
+}
