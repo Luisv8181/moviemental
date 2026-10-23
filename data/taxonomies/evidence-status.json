@@ -1,0 +1,30 @@
+{
+  "taxonomy_id": "evidence-status",
+  "version": "0.1.0",
+  "terms": [
+    {
+      "id": "explicit_in_work",
+      "label": "Explicit in work"
+    },
+    {
+      "id": "creator_confirmed",
+      "label": "Creator confirmed"
+    },
+    {
+      "id": "source_supported_interpretation",
+      "label": "Source-supported interpretation"
+    },
+    {
+      "id": "experiential_only",
+      "label": "Experiential only"
+    },
+    {
+      "id": "contested",
+      "label": "Contested"
+    },
+    {
+      "id": "unknown",
+      "label": "Unknown"
+    }
+  ]
+}
