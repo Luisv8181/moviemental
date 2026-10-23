@@ -1,0 +1,19 @@
+{
+  "id": "work-senua",
+  "title": "Hellblade: Senua's Sacrifice",
+  "media_type": "video_game",
+  "release_year": 2017,
+  "country_or_region": [],
+  "language": [
+    "en"
+  ],
+  "source_ids": [
+    "source-senua"
+  ],
+  "content_warnings": [
+    "violence",
+    "psychosis-like experiences",
+    "bereavement"
+  ],
+  "review_status": "draft"
+}
