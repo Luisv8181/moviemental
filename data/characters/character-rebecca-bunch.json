@@ -56,7 +56,9 @@
     "interpersonal conflict",
     "therapy"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-diagnosis"
+  ],
   "content_warnings": [
     "suicide themes",
     "self-harm themes",
