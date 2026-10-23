@@ -1,0 +1,41 @@
+{
+  "id": "journey-substance-use",
+  "title": "Substance use and ambivalence",
+  "summary": "An uneven journey involving substance use, harm, relationships, and uncertain readiness for change.",
+  "journey_type": "recovery",
+  "character_ids": [
+    "character-rue-bennett",
+    "character-beth-harmon"
+  ],
+  "work_ids": [
+    "work-rue-bennett",
+    "work-beth-harmon"
+  ],
+  "stages": [
+    {
+      "order": 1,
+      "label": "Initial pressure",
+      "description": "Identify the circumstances, stressors, and relationships established by the work."
+    },
+    {
+      "order": 2,
+      "label": "Response and consequences",
+      "description": "Document coping patterns, barriers, turning points, and effects on relationships."
+    },
+    {
+      "order": 3,
+      "label": "Change or unresolved outcome",
+      "description": "Record the ending without assuming recovery is linear or complete."
+    }
+  ],
+  "turning_points": [],
+  "support_and_barriers": [],
+  "outcome_type": "to_be_reviewed",
+  "themes": [],
+  "content_warnings": [],
+  "source_ids": [
+    "source-rue-bennett",
+    "source-beth-harmon"
+  ],
+  "review_status": "needs_sources"
+}
