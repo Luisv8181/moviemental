@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Moviemental Source Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "source_type",
+    "title",
+    "review_status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "source_type": {
+      "enum": [
+        "primary_work",
+        "official_material",
+        "creator_statement",
+        "peer_reviewed_research",
+        "scholarly_criticism",
+        "reputable_journalism",
+        "other"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "author_or_publisher": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "published_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "accessed_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "supports_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "review_status": {
+      "enum": [
+        "draft",
+        "needs_sources",
+        "in_review",
+        "reviewed",
+        "contested",
+        "archived"
+      ]
+    }
+  }
+}
