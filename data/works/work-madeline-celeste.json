@@ -1,0 +1,19 @@
+{
+  "id": "work-madeline-celeste",
+  "title": "Celeste",
+  "media_type": "video_game",
+  "release_year": 2018,
+  "country_or_region": [],
+  "language": [
+    "en"
+  ],
+  "source_ids": [
+    "source-madeline-celeste"
+  ],
+  "content_warnings": [
+    "panic themes",
+    "depression themes",
+    "suicide references"
+  ],
+  "review_status": "draft"
+}
