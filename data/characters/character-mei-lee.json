@@ -1,0 +1,60 @@
+{
+  "id": "character-mei-lee",
+  "name": "Mei Lee",
+  "work_id": "work-mei-lee",
+  "psychological_experiences": [
+    {
+      "tag": "adolescent change",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-mei-lee"
+      ]
+    },
+    {
+      "tag": "emotional intensity",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-mei-lee"
+      ]
+    },
+    {
+      "tag": "family expectations",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-mei-lee"
+      ]
+    },
+    {
+      "tag": "identity",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-mei-lee"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "excitement",
+    "embarrassment",
+    "anger"
+  ],
+  "coping_patterns": [
+    "peer support",
+    "self-expression",
+    "family negotiation"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "family conflict",
+    "puberty themes"
+  ],
+  "source_ids": [
+    "source-mei-lee"
+  ],
+  "representation_notes": "Metaphorical coming-of-age story about emotion and identity, not a specific disorder.",
+  "review_status": "needs_sources"
+}
