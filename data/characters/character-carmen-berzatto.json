@@ -1,0 +1,62 @@
+{
+  "id": "character-carmen-berzatto",
+  "name": "Carmen 'Carmy' Berzatto",
+  "work_id": "work-carmen-berzatto",
+  "psychological_experiences": [
+    {
+      "tag": "grief",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-carmen-berzatto"
+      ]
+    },
+    {
+      "tag": "perfectionism",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-carmen-berzatto"
+      ]
+    },
+    {
+      "tag": "work stress",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-carmen-berzatto"
+      ]
+    },
+    {
+      "tag": "family trauma",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-carmen-berzatto"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "anxiety",
+    "frustration",
+    "sadness"
+  ],
+  "coping_patterns": [
+    "overwork",
+    "control",
+    "withdrawal"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "family conflict",
+    "panic",
+    "verbal aggression",
+    "bereavement"
+  ],
+  "source_ids": [
+    "source-carmen-berzatto"
+  ],
+  "representation_notes": "Explores grief, family systems, perfectionism, and occupational stress without a diagnosis.",
+  "review_status": "needs_sources"
+}
