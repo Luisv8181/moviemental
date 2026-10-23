@@ -1,0 +1,70 @@
+{
+  "id": "character-rebecca-bunch",
+  "name": "Rebecca Bunch",
+  "work_id": "work-rebecca-bunch",
+  "psychological_experiences": [
+    {
+      "tag": "relationship insecurity",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-rebecca-bunch"
+      ]
+    },
+    {
+      "tag": "shame",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-rebecca-bunch"
+      ]
+    },
+    {
+      "tag": "impulsivity",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-rebecca-bunch"
+      ]
+    },
+    {
+      "tag": "help-seeking",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-rebecca-bunch"
+      ]
+    }
+  ],
+  "diagnoses": [
+    {
+      "tag": "borderline personality disorder",
+      "evidence_status": "explicit_in_work",
+      "evidence": "The series explicitly names this diagnosis; exact episode wording and context require verification.",
+      "source_ids": [
+        "source-rebecca-bunch"
+      ]
+    }
+  ],
+  "moods": [
+    "longing",
+    "shame",
+    "hope"
+  ],
+  "coping_patterns": [
+    "avoidance",
+    "interpersonal conflict",
+    "therapy"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "suicide themes",
+    "self-harm themes",
+    "relationship conflict"
+  ],
+  "source_ids": [
+    "source-rebecca-bunch"
+  ],
+  "representation_notes": "Series explicitly names borderline personality disorder; verify episode-level evidence and assess nuance.",
+  "review_status": "needs_sources"
+}
