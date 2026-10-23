@@ -6,12 +6,16 @@
   "character_ids": [
     "character-mirabel-madrigal",
     "character-miles-morales",
-    "character-luz-noceda"
+    "character-luz-noceda",
+    "character-asta",
+    "character-n"
   ],
   "work_ids": [
     "work-mirabel-madrigal",
     "work-miles-morales",
-    "work-luz-noceda"
+    "work-luz-noceda",
+    "work-asta",
+    "work-n"
   ],
   "stages": [
     {
@@ -38,7 +42,9 @@
   "source_ids": [
     "source-mirabel-madrigal",
     "source-miles-morales",
-    "source-luz-noceda"
+    "source-luz-noceda",
+    "source-asta",
+    "source-n"
   ],
   "review_status": "needs_sources"
 }

@@ -1,0 +1,65 @@
+{
+  "id": "character-asta",
+  "name": "Asta",
+  "work_id": "work-asta",
+  "psychological_experiences": [
+    {
+      "tag": "feeling different",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; episode-level evidence still needed.",
+      "source_ids": [
+        "source-asta"
+      ]
+    },
+    {
+      "tag": "social exclusion",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; episode-level evidence still needed.",
+      "source_ids": [
+        "source-asta"
+      ]
+    },
+    {
+      "tag": "belonging",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; episode-level evidence still needed.",
+      "source_ids": [
+        "source-asta"
+      ]
+    },
+    {
+      "tag": "identity formation",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; episode-level evidence still needed.",
+      "source_ids": [
+        "source-asta"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "determination",
+    "frustration",
+    "hope"
+  ],
+  "coping_patterns": [
+    "persistence",
+    "physical training",
+    "friendship",
+    "rivalry as motivation"
+  ],
+  "journey_ids": [
+    "journey-belonging"
+  ],
+  "content_warnings": [
+    "fantasy violence",
+    "peril",
+    "bullying and mockery",
+    "class prejudice"
+  ],
+  "source_ids": [
+    "source-asta"
+  ],
+  "representation_notes": "Explores being an outsider without magic in a society that ranks people by magical power, and finding belonging in a group of misfits. Persistence is central to the portrayal; it is one character's response, not a universal model for coping. No diagnosis label.",
+  "review_status": "needs_sources"
+}

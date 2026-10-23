@@ -1,0 +1,24 @@
+{
+  "id": "work-n",
+  "title": "Pokémon Black and Pokémon White",
+  "media_type": "video_game",
+  "release_year": 2010,
+  "country_or_region": [
+    "JP"
+  ],
+  "language": [
+    "ja"
+  ],
+  "creator_names": [
+    "Game Freak"
+  ],
+  "source_ids": [
+    "source-n"
+  ],
+  "content_warnings": [
+    "emotional manipulation of a child",
+    "childhood isolation",
+    "mistreatment of animals (fictional creatures)"
+  ],
+  "review_status": "draft"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "work-asta",
+  "title": "Black Clover",
+  "media_type": "anime",
+  "release_year": 2017,
+  "country_or_region": [
+    "JP"
+  ],
+  "language": [
+    "ja"
+  ],
+  "creator_names": [
+    "Yūki Tabata"
+  ],
+  "source_ids": [
+    "source-asta"
+  ],
+  "content_warnings": [
+    "fantasy violence",
+    "peril",
+    "bullying and mockery",
+    "class prejudice"
+  ],
+  "review_status": "draft"
+}
