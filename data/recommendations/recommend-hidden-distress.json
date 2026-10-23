@@ -1,0 +1,25 @@
+{
+  "id": "recommend-hidden-distress",
+  "goal": "feel_understood",
+  "goal_detail": "When someone appears cheerful or capable but is struggling privately",
+  "work_ids": [
+    "work-ted-lasso",
+    "work-steven-universe"
+  ],
+  "journey_ids": [
+    "journey-hidden-distress"
+  ],
+  "why_it_may_fit": "Both portray characters who support others while having difficulty recognizing or communicating their own needs.",
+  "limitations": "Narrative resolution may simplify real-world barriers to treatment and support.",
+  "emotional_intensity": "moderate",
+  "content_warnings": [
+    "panic",
+    "trauma themes",
+    "emotional distress"
+  ],
+  "source_ids": [
+    "source-ted-lasso",
+    "source-steven-universe"
+  ],
+  "review_status": "needs_sources"
+}
