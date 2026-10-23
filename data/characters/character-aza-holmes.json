@@ -47,7 +47,9 @@
     "friendship",
     "treatment"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-intrusive-thoughts"
+  ],
   "content_warnings": [
     "intrusive thoughts",
     "anxiety",
