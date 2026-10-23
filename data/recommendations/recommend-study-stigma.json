@@ -1,0 +1,30 @@
+{
+  "id": "recommend-study-stigma",
+  "goal": "study_representation",
+  "goal_detail": "Critically examine mental health stigma in media",
+  "work_ids": [
+    "work-arthur-fleck",
+    "work-adrian-monk",
+    "work-senua"
+  ],
+  "journey_ids": [
+    "journey-representation",
+    "journey-diagnosis",
+    "journey-grief"
+  ],
+  "why_it_may_fit": "These contrasting portrayals provide material for discussing stigma, humor, psychosis-like experiences, and character complexity.",
+  "limitations": "The works differ greatly in genre and realism; use scholarly and lived-experience sources before drawing conclusions about clinical accuracy.",
+  "emotional_intensity": "intense",
+  "content_warnings": [
+    "graphic violence",
+    "psychosis-like experiences",
+    "bereavement",
+    "suicide themes"
+  ],
+  "source_ids": [
+    "source-arthur-fleck",
+    "source-adrian-monk",
+    "source-senua"
+  ],
+  "review_status": "needs_sources"
+}
