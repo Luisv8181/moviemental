@@ -1,0 +1,61 @@
+{
+  "id": "character-pat-solatano",
+  "name": "Pat Solatano",
+  "work_id": "work-pat-solatano",
+  "psychological_experiences": [
+    {
+      "tag": "mood instability",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-pat-solatano"
+      ]
+    },
+    {
+      "tag": "relationship disruption",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-pat-solatano"
+      ]
+    },
+    {
+      "tag": "rebuilding routines",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-pat-solatano"
+      ]
+    },
+    {
+      "tag": "stigma",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-pat-solatano"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "agitation",
+    "hope",
+    "frustration"
+  ],
+  "coping_patterns": [
+    "exercise",
+    "family support",
+    "relationship connection"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "psychiatric hospitalization",
+    "violence",
+    "bereavement"
+  ],
+  "source_ids": [
+    "source-pat-solatano"
+  ],
+  "representation_notes": "References psychiatric diagnosis and treatment; review clinical accuracy and avoid treating romance as treatment.",
+  "review_status": "needs_sources"
+}
