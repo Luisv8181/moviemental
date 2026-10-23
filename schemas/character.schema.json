@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Moviemental Character Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "work_id",
+    "psychological_experiences",
+    "diagnoses",
+    "journey_ids",
+    "review_status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "work_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "psychological_experiences": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "diagnoses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/claim"
+      }
+    },
+    "moods": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "coping_patterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "journey_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "content_warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "representation_notes": {
+      "type": "string"
+    },
+    "review_status": {
+      "enum": [
+        "draft",
+        "needs_sources",
+        "in_review",
+        "reviewed",
+        "contested",
+        "archived"
+      ]
+    }
+  },
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tag",
+        "evidence_status"
+      ],
+      "properties": {
+        "tag": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_status": {
+          "enum": [
+            "explicit_in_work",
+            "creator_confirmed",
+            "source_supported_interpretation",
+            "experiential_only",
+            "contested",
+            "unknown"
+          ]
+        },
+        "evidence": {
+          "type": "string"
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
