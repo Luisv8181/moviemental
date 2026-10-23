@@ -1,0 +1,63 @@
+{
+  "id": "character-charlie-kelmeckis",
+  "name": "Charlie Kelmeckis",
+  "work_id": "work-charlie-kelmeckis",
+  "psychological_experiences": [
+    {
+      "tag": "social isolation",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-charlie-kelmeckis"
+      ]
+    },
+    {
+      "tag": "trauma",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-charlie-kelmeckis"
+      ]
+    },
+    {
+      "tag": "grief",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-charlie-kelmeckis"
+      ]
+    },
+    {
+      "tag": "friendship and belonging",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-charlie-kelmeckis"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "loneliness",
+    "fear",
+    "relief"
+  ],
+  "coping_patterns": [
+    "withdrawal",
+    "writing",
+    "friendship",
+    "help-seeking"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "sexual abuse",
+    "suicide",
+    "trauma",
+    "substance use"
+  ],
+  "source_ids": [
+    "source-charlie-kelmeckis"
+  ],
+  "representation_notes": "Explores adolescent belonging and trauma; content warnings are essential.",
+  "review_status": "needs_sources"
+}
