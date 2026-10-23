@@ -53,9 +53,13 @@ The validation foundation is in place. The next task is to curate the first 20â€
 
 See [the roadmap](docs/ROADMAP.md), [the project model](docs/PROJECT_MODEL.md), [the evidence policy](docs/EVIDENCE_POLICY.md), and [the ethics and safety policy](docs/ETHICS_AND_SAFETY.md).
 
-## Status
+## Website prototype
 
-Early foundation stage. The schemas and automated validation workflow are implemented; the curated catalogue and discovery interface are not yet complete. Draft entries must not be presented as clinically reviewed.
+An interactive static-site prototype is now in the repository root. It includes live search over the JSON registry, media-type filtering, topic shortcuts, character detail panels, journey exploration, and an expansion area for Hispanic and Dominican media. See [the website preview guide](docs/WEBSITE.md).
+
+The data validation workflow has passed on the current pilot dataset. GitHub Pages deployment is configured as a workflow, but the repository's Pages site is not yet enabled; the deployment job will not publish until Pages is configured in repository settings. The repository remains private.
+
+The catalogue is still a research pilot. Most character interpretations and content warnings need editorial source review; draft entries must not be presented as clinically reviewed.
 
 ## Disclaimer
 
