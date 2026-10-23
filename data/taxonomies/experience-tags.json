@@ -1,0 +1,120 @@
+{
+  "taxonomy_id": "experience-tags",
+  "version": "0.1.0",
+  "status": "starter_vocabulary",
+  "note": "Discovery vocabulary, not a diagnostic instrument.",
+  "categories": [
+    {
+      "id": "emotional-experience",
+      "label": "Emotional experiences",
+      "terms": [
+        {
+          "id": "grief",
+          "label": "Grief"
+        },
+        {
+          "id": "loneliness",
+          "label": "Loneliness"
+        },
+        {
+          "id": "shame",
+          "label": "Shame"
+        },
+        {
+          "id": "guilt",
+          "label": "Guilt"
+        },
+        {
+          "id": "emotional-numbness",
+          "label": "Emotional numbness"
+        },
+        {
+          "id": "hopelessness",
+          "label": "Hopelessness"
+        },
+        {
+          "id": "anger",
+          "label": "Anger"
+        },
+        {
+          "id": "ambivalence",
+          "label": "Ambivalence"
+        }
+      ]
+    },
+    {
+      "id": "social-experience",
+      "label": "Social and relational experiences",
+      "terms": [
+        {
+          "id": "social-isolation",
+          "label": "Social isolation"
+        },
+        {
+          "id": "fear-of-rejection",
+          "label": "Fear of rejection"
+        },
+        {
+          "id": "difficulty-trusting",
+          "label": "Difficulty trusting"
+        },
+        {
+          "id": "belonging",
+          "label": "Belonging"
+        },
+        {
+          "id": "caregiver-strain",
+          "label": "Caregiver strain"
+        }
+      ]
+    },
+    {
+      "id": "behavioral-pattern",
+      "label": "Behavioral patterns",
+      "terms": [
+        {
+          "id": "avoidance",
+          "label": "Avoidance"
+        },
+        {
+          "id": "help-seeking",
+          "label": "Help-seeking"
+        },
+        {
+          "id": "withdrawal",
+          "label": "Withdrawal"
+        },
+        {
+          "id": "perfectionism",
+          "label": "Perfectionism"
+        }
+      ]
+    },
+    {
+      "id": "adaptation-and-change",
+      "label": "Adaptation and change",
+      "terms": [
+        {
+          "id": "acceptance",
+          "label": "Acceptance"
+        },
+        {
+          "id": "identity-formation",
+          "label": "Identity formation"
+        },
+        {
+          "id": "rebuilding-trust",
+          "label": "Rebuilding trust"
+        },
+        {
+          "id": "meaning-making",
+          "label": "Meaning-making"
+        },
+        {
+          "id": "relapse",
+          "label": "Relapse"
+        }
+      ]
+    }
+  ]
+}
