@@ -1,0 +1,50 @@
+{
+  "id": "journey-grief",
+  "title": "Grief, meaning, and adaptation",
+  "summary": "Living with loss while navigating altered relationships, self-understanding, and meaning.",
+  "journey_type": "grief",
+  "character_ids": [
+    "character-carmen-berzatto",
+    "character-evelyn-wang",
+    "character-ellie-williams",
+    "character-john-nash-film",
+    "character-senua"
+  ],
+  "work_ids": [
+    "work-carmen-berzatto",
+    "work-evelyn-wang",
+    "work-ellie-williams",
+    "work-john-nash-film",
+    "work-senua"
+  ],
+  "stages": [
+    {
+      "order": 1,
+      "label": "Initial pressure",
+      "description": "Identify the circumstances, stressors, and relationships established by the work."
+    },
+    {
+      "order": 2,
+      "label": "Response and consequences",
+      "description": "Document coping patterns, barriers, turning points, and effects on relationships."
+    },
+    {
+      "order": 3,
+      "label": "Change or unresolved outcome",
+      "description": "Record the ending without assuming recovery is linear or complete."
+    }
+  ],
+  "turning_points": [],
+  "support_and_barriers": [],
+  "outcome_type": "to_be_reviewed",
+  "themes": [],
+  "content_warnings": [],
+  "source_ids": [
+    "source-carmen-berzatto",
+    "source-evelyn-wang",
+    "source-ellie-williams",
+    "source-john-nash-film",
+    "source-senua"
+  ],
+  "review_status": "needs_sources"
+}
