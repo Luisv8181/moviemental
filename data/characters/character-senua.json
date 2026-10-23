@@ -47,7 +47,9 @@
     "perseverance",
     "meaning-making"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-grief"
+  ],
   "content_warnings": [
     "violence",
     "psychosis-like experiences",
