@@ -1,0 +1,61 @@
+{
+  "id": "character-aza-holmes",
+  "name": "Aza Holmes",
+  "work_id": "work-aza-holmes",
+  "psychological_experiences": [
+    {
+      "tag": "intrusive thoughts",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-aza-holmes"
+      ]
+    },
+    {
+      "tag": "reassurance seeking",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-aza-holmes"
+      ]
+    },
+    {
+      "tag": "anxiety",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-aza-holmes"
+      ]
+    },
+    {
+      "tag": "friendship strain",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-aza-holmes"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "fear",
+    "shame",
+    "tenderness"
+  ],
+  "coping_patterns": [
+    "reassurance seeking",
+    "friendship",
+    "treatment"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "intrusive thoughts",
+    "anxiety",
+    "death"
+  ],
+  "source_ids": [
+    "source-aza-holmes"
+  ],
+  "representation_notes": "First-person narrative about intrusive thoughts and anxiety, not a diagnostic checklist.",
+  "review_status": "needs_sources"
+}
