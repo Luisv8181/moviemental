@@ -1,0 +1,19 @@
+{
+  "id": "work-john-nash-film",
+  "title": "A Beautiful Mind",
+  "media_type": "film",
+  "release_year": 2001,
+  "country_or_region": [],
+  "language": [
+    "en"
+  ],
+  "source_ids": [
+    "source-john-nash-film"
+  ],
+  "content_warnings": [
+    "psychosis",
+    "hospitalization",
+    "suicide themes"
+  ],
+  "review_status": "draft"
+}
