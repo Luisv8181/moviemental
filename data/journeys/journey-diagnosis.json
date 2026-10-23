@@ -1,0 +1,44 @@
+{
+  "id": "journey-diagnosis",
+  "title": "Diagnosis and self-understanding",
+  "summary": "Recognizing a condition and negotiating treatment, identity, and responsibility.",
+  "journey_type": "self-understanding",
+  "character_ids": [
+    "character-rebecca-bunch",
+    "character-adrian-monk",
+    "character-sam-gardner"
+  ],
+  "work_ids": [
+    "work-rebecca-bunch",
+    "work-adrian-monk",
+    "work-sam-gardner"
+  ],
+  "stages": [
+    {
+      "order": 1,
+      "label": "Initial pressure",
+      "description": "Identify the circumstances, stressors, and relationships established by the work."
+    },
+    {
+      "order": 2,
+      "label": "Response and consequences",
+      "description": "Document coping patterns, barriers, turning points, and effects on relationships."
+    },
+    {
+      "order": 3,
+      "label": "Change or unresolved outcome",
+      "description": "Record the ending without assuming recovery is linear or complete."
+    }
+  ],
+  "turning_points": [],
+  "support_and_barriers": [],
+  "outcome_type": "to_be_reviewed",
+  "themes": [],
+  "content_warnings": [],
+  "source_ids": [
+    "source-rebecca-bunch",
+    "source-adrian-monk",
+    "source-sam-gardner"
+  ],
+  "review_status": "needs_sources"
+}
