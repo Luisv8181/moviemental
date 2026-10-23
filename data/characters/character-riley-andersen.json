@@ -1,0 +1,51 @@
+{
+  "id": "character-riley-andersen",
+  "name": "Riley Andersen",
+  "work_id": "work-riley-andersen",
+  "psychological_experiences": [
+    {
+      "tag": "emotional adjustment",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-riley-andersen"
+      ]
+    },
+    {
+      "tag": "family transition",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-riley-andersen"
+      ]
+    },
+    {
+      "tag": "complex feelings",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-riley-andersen"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "sadness",
+    "confusion",
+    "hope"
+  ],
+  "coping_patterns": [
+    "avoidance",
+    "reconnection"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "family separation",
+    "emotional distress"
+  ],
+  "source_ids": [
+    "source-riley-andersen"
+  ],
+  "representation_notes": "Metaphorical portrayal of adjustment during a move; not a clinical model.",
+  "review_status": "needs_sources"
+}
