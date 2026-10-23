@@ -1,0 +1,19 @@
+{
+  "id": "work-pat-solatano",
+  "title": "Silver Linings Playbook",
+  "media_type": "film",
+  "release_year": 2012,
+  "country_or_region": [],
+  "language": [
+    "en"
+  ],
+  "source_ids": [
+    "source-pat-solatano"
+  ],
+  "content_warnings": [
+    "psychiatric hospitalization",
+    "violence",
+    "bereavement"
+  ],
+  "review_status": "draft"
+}
