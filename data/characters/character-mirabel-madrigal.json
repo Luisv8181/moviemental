@@ -47,7 +47,9 @@
     "confronting family patterns",
     "reconnection"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-belonging"
+  ],
   "content_warnings": [
     "family conflict",
     "emotional neglect themes"
