@@ -1,0 +1,61 @@
+{
+  "id": "character-ellie-williams",
+  "name": "Ellie Williams",
+  "work_id": "work-ellie-williams",
+  "psychological_experiences": [
+    {
+      "tag": "grief",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-ellie-williams"
+      ]
+    },
+    {
+      "tag": "survival stress",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-ellie-williams"
+      ]
+    },
+    {
+      "tag": "attachment",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-ellie-williams"
+      ]
+    },
+    {
+      "tag": "moral injury themes",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-ellie-williams"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "anger",
+    "fear",
+    "affection"
+  ],
+  "coping_patterns": [
+    "humor",
+    "hypervigilance",
+    "attachment"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "graphic violence",
+    "bereavement",
+    "trauma"
+  ],
+  "source_ids": [
+    "source-ellie-williams"
+  ],
+  "representation_notes": "High-intensity survival narrative; this record refers to the original game, not the TV adaptation.",
+  "review_status": "needs_sources"
+}
