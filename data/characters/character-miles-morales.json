@@ -47,7 +47,9 @@
     "practice",
     "creative expression"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-belonging"
+  ],
   "content_warnings": [
     "family conflict",
     "peril",
