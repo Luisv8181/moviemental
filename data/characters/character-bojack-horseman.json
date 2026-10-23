@@ -1,0 +1,61 @@
+{
+  "id": "character-bojack-horseman",
+  "name": "BoJack Horseman",
+  "work_id": "work-bojack-horseman",
+  "psychological_experiences": [
+    {
+      "tag": "shame",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-bojack-horseman"
+      ]
+    },
+    {
+      "tag": "self-sabotage",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-bojack-horseman"
+      ]
+    },
+    {
+      "tag": "substance use",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-bojack-horseman"
+      ]
+    },
+    {
+      "tag": "loneliness",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-bojack-horseman"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "emptiness",
+    "regret",
+    "cynicism"
+  ],
+  "coping_patterns": [
+    "substance use",
+    "avoidance",
+    "humor"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "substance use",
+    "suicide themes",
+    "abuse"
+  ],
+  "source_ids": [
+    "source-bojack-horseman"
+  ],
+  "representation_notes": "Portrays distress, addiction, accountability, and consequences.",
+  "review_status": "needs_sources"
+}
