@@ -47,7 +47,9 @@
     "control",
     "withdrawal"
   ],
-  "journey_ids": [],
+  "journey_ids": [
+    "journey-grief"
+  ],
   "content_warnings": [
     "family conflict",
     "panic",
