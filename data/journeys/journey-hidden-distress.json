@@ -1,0 +1,41 @@
+{
+  "id": "journey-hidden-distress",
+  "title": "Hidden distress and help-seeking",
+  "summary": "Moving from concealed distress toward disclosure, support, or a more honest understanding of needs.",
+  "journey_type": "help-seeking",
+  "character_ids": [
+    "character-ted-lasso",
+    "character-steven-universe"
+  ],
+  "work_ids": [
+    "work-ted-lasso",
+    "work-steven-universe"
+  ],
+  "stages": [
+    {
+      "order": 1,
+      "label": "Initial pressure",
+      "description": "Identify the circumstances, stressors, and relationships established by the work."
+    },
+    {
+      "order": 2,
+      "label": "Response and consequences",
+      "description": "Document coping patterns, barriers, turning points, and effects on relationships."
+    },
+    {
+      "order": 3,
+      "label": "Change or unresolved outcome",
+      "description": "Record the ending without assuming recovery is linear or complete."
+    }
+  ],
+  "turning_points": [],
+  "support_and_barriers": [],
+  "outcome_type": "to_be_reviewed",
+  "themes": [],
+  "content_warnings": [],
+  "source_ids": [
+    "source-ted-lasso",
+    "source-steven-universe"
+  ],
+  "review_status": "needs_sources"
+}
