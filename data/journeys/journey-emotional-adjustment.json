@@ -1,0 +1,41 @@
+{
+  "id": "journey-emotional-adjustment",
+  "title": "Emotional adjustment through change",
+  "summary": "A journey through disruption, mixed emotions, and reconnection.",
+  "journey_type": "adaptation",
+  "character_ids": [
+    "character-riley-andersen",
+    "character-mei-lee"
+  ],
+  "work_ids": [
+    "work-riley-andersen",
+    "work-mei-lee"
+  ],
+  "stages": [
+    {
+      "order": 1,
+      "label": "Initial pressure",
+      "description": "Identify the circumstances, stressors, and relationships established by the work."
+    },
+    {
+      "order": 2,
+      "label": "Response and consequences",
+      "description": "Document coping patterns, barriers, turning points, and effects on relationships."
+    },
+    {
+      "order": 3,
+      "label": "Change or unresolved outcome",
+      "description": "Record the ending without assuming recovery is linear or complete."
+    }
+  ],
+  "turning_points": [],
+  "support_and_barriers": [],
+  "outcome_type": "to_be_reviewed",
+  "themes": [],
+  "content_warnings": [],
+  "source_ids": [
+    "source-riley-andersen",
+    "source-mei-lee"
+  ],
+  "review_status": "needs_sources"
+}
