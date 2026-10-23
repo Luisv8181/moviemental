@@ -1,0 +1,60 @@
+{
+  "id": "character-mirabel-madrigal",
+  "name": "Mirabel Madrigal",
+  "work_id": "work-mirabel-madrigal",
+  "psychological_experiences": [
+    {
+      "tag": "family pressure",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-mirabel-madrigal"
+      ]
+    },
+    {
+      "tag": "feeling overlooked",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-mirabel-madrigal"
+      ]
+    },
+    {
+      "tag": "belonging",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-mirabel-madrigal"
+      ]
+    },
+    {
+      "tag": "intergenerational expectations",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-mirabel-madrigal"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "frustration",
+    "hurt",
+    "hope"
+  ],
+  "coping_patterns": [
+    "problem-solving",
+    "confronting family patterns",
+    "reconnection"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "family conflict",
+    "emotional neglect themes"
+  ],
+  "source_ids": [
+    "source-mirabel-madrigal"
+  ],
+  "representation_notes": "Explores family roles and belonging without assigning a diagnosis.",
+  "review_status": "needs_sources"
+}
