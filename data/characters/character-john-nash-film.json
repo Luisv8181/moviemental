@@ -1,0 +1,60 @@
+{
+  "id": "character-john-nash-film",
+  "name": "John Nash (film portrayal)",
+  "work_id": "work-john-nash-film",
+  "psychological_experiences": [
+    {
+      "tag": "psychosis portrayal",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-john-nash-film"
+      ]
+    },
+    {
+      "tag": "relationship strain",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-john-nash-film"
+      ]
+    },
+    {
+      "tag": "stigma",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-john-nash-film"
+      ]
+    },
+    {
+      "tag": "adaptation",
+      "evidence_status": "experiential_only",
+      "evidence": "Starter interpretation based on broad narrative portrayal; scene-level evidence still needed.",
+      "source_ids": [
+        "source-john-nash-film"
+      ]
+    }
+  ],
+  "diagnoses": [],
+  "moods": [
+    "fear",
+    "confusion",
+    "resolve"
+  ],
+  "coping_patterns": [
+    "relationship support",
+    "adaptation"
+  ],
+  "journey_ids": [],
+  "content_warnings": [
+    "psychosis",
+    "hospitalization",
+    "suicide themes"
+  ],
+  "source_ids": [
+    "source-john-nash-film"
+  ],
+  "representation_notes": "Dramatized biographical portrayal; distinguish film character from the historical person.",
+  "review_status": "needs_sources"
+}
